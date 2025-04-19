@@ -1,0 +1,28 @@
+.header {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.header_inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 2rem;
+    gap: 4rem;
+}
+
+.search-input{
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.125rem;
+    background-color: transparent;
+    color: #000;
+
+    width: 100%;
+}
+
+.nav_list{
+    display: flex;
+    gap: 1.5rem;
+}
+
