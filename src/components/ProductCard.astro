@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import '../styles/product-card.css';
+
+interface Props {
+    id: number;
+    title: string;
+    price: number;
+    timeLeft: string;
+    imageUrl: string;
+}
+
+const {id, title, price, timeLeft, imageUrl} = Astro.props ;
+
+// Use a relative path pattern for glob
+const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,gif,webp}');
+const getImage = images[imageUrl];
+---
+
+<a href={"cars/" + id} class="product_card">
+    {getImage ? (
+        <Image class="product_card_image" src={getImage()} alt={title} />
+    ) : (
+        <div class="product_card_image placeholder">No image available</div>
+    )}
+
+    <div class="product_card_info">
+        <h4>{title}</h4>
+
+        <div class="product_card_info_inner">
+            <p>£{price}</p>
+            <p>{timeLeft}</p>
+        </div>
+
+    </div>
+
+</a>
