@@ -1,0 +1,66 @@
+---
+import '../styles/global.css'
+import '../styles/footer.css'
+import instagramIco from '../images/icons/instagram.png'
+import facebookIco from '../images/icons/facebook.png'
+import whatsappIco from '../images/icons/whatsapp.png'
+import { Image } from 'astro:assets'
+
+
+
+
+---
+
+<footer class="footer">
+    <div class="footer_inner container">
+        <div class="footer-logo-div">
+            <h1>Logo</h1>
+        </div>
+        <div class="footer-list"> 
+            <h4>Auctions</h4>
+            <ul class="footer-list-items">
+                <li>wfef</li>
+                <li>wefewf</li>
+                <li>wefewf</li>
+            </ul>
+        </div>
+        <div class="footer-list">
+            <h4>Find a Car</h4>
+            <ul class="footer-list-items">
+                <li>wfef</li>
+                <li>wefewf</li>
+                <li>wefewf</li>
+            </ul>
+        </div>
+        <div class="footer-list">
+            <h4>Connect with Us</h4>
+            <ul class="footer-list-items">
+                <li class="social-media-li">
+                    <Image src={facebookIco} alt="facebook ico"></Image>
+                    <a href=""> facebook</a>
+                </li>
+                <li class="social-media-li">
+                    <Image src={instagramIco} alt="instagram ico"></Image>
+                    <a href=""> instagram</a>
+                </li>
+                <li class="social-media-li">
+                    <Image src={whatsappIco} alt="whatsapp ico"></Image>
+                    <a href=""> whatsapp</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+
+
+        const list = document.querySelectorAll(".footer-list")
+        const listItems = document.querySelectorAll(".footer-list-items")
+        list.forEach((listItem, index)=>{
+            listItem.addEventListener('click',()=>{
+               
+               listItems[index].classList.toggle("active");
+            })
+        })
+        
+    </script>
+</footer>
