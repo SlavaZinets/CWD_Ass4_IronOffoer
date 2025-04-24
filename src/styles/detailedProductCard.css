@@ -1,0 +1,53 @@
+.lot {
+    display: flex;
+    padding: 2rem;
+    gap: 5rem;
+}
+
+.card-img {
+    border: 1px solid #000;
+    width: 50%;
+    height: auto;
+}
+
+.characteristics {
+    gap: 10rem;
+}
+
+.title {
+    padding: .5rem;
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.car-details {
+    font-size: larger;
+}
+
+.list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.list ul {
+    line-height: 3rem;
+}
+
+.auction-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bid-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+}
+
+.bid {
+    width: 50%;
+    align-self: center;
+    border: #000 1px solid;
+    cursor: pointer;
+}
