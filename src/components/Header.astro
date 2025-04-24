@@ -1,12 +1,23 @@
 ---
 import '../styles/global.css';
 import '../styles/header.css';
+
+import searchIco from '../images/icons/searchIcon.png';
+import { Image } from 'astro:assets';
+
+//Todo make focus for search bar js
+
 ---
 
 <header class="header">
    <div class="header_inner container">
        <span>Logo</span>
-       <input type="text" class="search-input" placeholder="Search"></input>
+       <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search"></input>
+            <button class="search-button" type="submit">
+                <Image src={searchIco} alt="search ico"></Image>
+            </button>
+        </div>  
        <nav>
            <ul class="nav_list">
                <li><a href="/">Catalog</a></li>
@@ -16,3 +27,29 @@ import '../styles/header.css';
    </div>
 </header>
 
+<footer class="footer">
+
+</footer>
+<script>
+    const input = document.querySelector(".search-input") as HTMLInputElement;
+    const searchBar = document.querySelector(".search-container")
+    input?.addEventListener('focus', ()=>{
+        searchBar?.classList.add("focused")
+    })
+    input?.addEventListener("blur", () => {
+        searchBar?.classList.remove("focused");
+        if(!input.value)
+            input.placeholder = 'Search';
+        else
+            input.placeholder = input.value;
+        
+        
+    });
+        
+        
+
+        
+    
+    
+
+</script>

@@ -46,6 +46,7 @@ button {
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5;
+    cursor: pointer;
 }
 
 a {
@@ -62,4 +63,8 @@ a {
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
+}
+input{
+    outline: none;
+    border: none;
 }
