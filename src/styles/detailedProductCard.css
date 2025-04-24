@@ -16,21 +16,17 @@
 
 .title {
     padding: .5rem;
-    font-weight: bold;
-    font-size: xx-large;
-}
-
-.car-details {
-    font-size: larger;
 }
 
 .list {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .list ul {
-    line-height: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .auction-info {
