@@ -5,9 +5,6 @@
     
 }
 /* Price filter */
-.price-filter-content{
-    
-}
 .price-filter{
     display: flex;
     gap: 1rem;
@@ -16,6 +13,8 @@
     padding-bottom: 1.5rem;
     
 }
+/* Prices input field */
+/* Basic styles */
 .price-input-min, .price-input-max{
     border: 3px, black, solid;
     border-radius: 0.4rem;
@@ -24,27 +23,48 @@
     padding: 0.5rem 1rem;
     font-size: 1rem;
 }
+/* styles for focused input fields */
 .price-input-focused{
     border: 3px, green, solid;
 }
+/* styles for highlighting incorrect input values */
 .price-input-exceeding-value{
     border: 3px, red, solid;
 }
+/*Filter price button styles */
 .price-button{
     padding: 0.5rem 1rem;
     background-color: var(--button-color);
     border-radius: 0.4rem;
     color: white;
 }
-.price-button-disabled{
-    background-color: grey
+/* button hover */
+.price-button:hover{
+    background-color: #a00e0e;
+    transition: 1s ease;
+    transition: background-color 0.3s ease;
 }
+/* Styles for disabled button */
+.price-button-disabled{
+    background-color: grey;
+    cursor: not-allowed;
+    transition: background-color 0.3s ease;
+    
+    
+}
+/* hover for disabled  button*/
+.price-button-disabled:hover {
+    background-color: #6e6e6e; 
+}
+
+/*price slider section*/
 .price-slider {
     margin-top: 1rem;
     position: relative;
     width: 100%;
      
 }
+/* delete default styles for range input */
 .price-slider input{
     pointer-events: none;
     appearance: none;
@@ -53,12 +73,9 @@
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
-    appearance: none;
-
-    
 }
-   
-.price-slider input::-webkit-slider-thumb{
+/* Custom styles for range input */
+.price-slider input::-webkit-slider-thumb{/*  pseudo-element that allows to style the slider */
     pointer-events: auto; /* allows to change both sliders inputs*/
     appearance: none;
     width: 1.9rem;
@@ -71,6 +88,7 @@
 
     
 }
+/* styles for custom slide bar */
 .custom-slider{
     position: absolute;
     top: 50%;
@@ -82,6 +100,7 @@
     background: var(--accent-color);
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
+/* styles for div which  */
 .price-progress{
     position: absolute;
     height: 100%;
@@ -95,7 +114,8 @@
     padding-top: 2rem;
 }
 
-.upcoming-auctions-checkbox .live-auctions-checkbox{
+/* Not forking */
+/* .upcoming-auctions-checkbox .live-auctions-checkbox{
     width: 2rem;
     height: 2rem;
-}
+} */

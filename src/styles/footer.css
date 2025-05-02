@@ -1,7 +1,5 @@
 .footer{
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    
     
     width: 100%;
     background-color: var(--accent-color);
@@ -13,7 +11,7 @@
     
 }
 .social-media-li img{
-    width: 15%;
+    width: 22%;
     height: auto;
 
 }

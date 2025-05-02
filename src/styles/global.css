@@ -8,6 +8,7 @@
     --text-color: #252525;
     --text-color-subactive: #575757;
     --text-color-light: #eeeef9;
+    --button-color: #C41111ff
 
 }
 
@@ -58,13 +59,18 @@ a {
     font-size: inherit;
 }
 
+input{
+    outline: none;
+    border: none;
+}
+
 .container {
     max-width: 80rem;
     width: 100%;
     margin: 0 auto;
     padding: 0 2rem;
 }
-input{
-    outline: none;
-    border: none;
+
+.content-wrapper{
+    display: flex   ;
 }
