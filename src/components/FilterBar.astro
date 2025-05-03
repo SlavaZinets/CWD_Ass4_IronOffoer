@@ -1,20 +1,23 @@
 ---
+
+
+import  "../styles/global.css"
 import "../styles/filterBar.css";
 ---
 
 <div class="filter-bar">
-    <h1>Filter section</h1>
+    <h1>Filters</h1>
     <div class="price-filter-content">
-        <h4>Price, Euro</h4>
+        <h3>Price, Euro</h3>
         <form action="" class="price-filter">
             <input type="text" class="price-input-min" />
             <span>-</span>
             <input type="text" class="price-input-max" />
             <button class="price-button">Search</button>
         </form>
-        <div class="price-slider">
+        <div class="price-slider">  
             <div class="custom-slider">
-                <div class="price-progress"></div>
+                
             </div>
             <input
                 type="range"
@@ -23,6 +26,7 @@ import "../styles/filterBar.css";
                 min="1000"
                 max="12000"
                 value="1500"
+                
             />
             <input
                 type="range"
@@ -31,30 +35,37 @@ import "../styles/filterBar.css";
                 min="1000"
                 max="12000"
                 value="3000"
+                
             />
         </div>
     </div>
     <div class="auction-type-filter-content">
-        <h4>Auction Type</h4>
+        <h3>Auction Type</h3>
         <form action="" class="auction-type-filter">
-            <input
-                type="checkbox"
-                id="upcomingAuctions"
-                class="upcoming-auctions-checkbox"
-            />
-            <label for="upcomingAuctions">Upcoming auctions</label><br />
-            <input
-                type="checkbox"
-                id="liveAuction"
-                class="live-auctions-checkbox"
-            />
-            <label for="liveAuctions">Live auctions</label>
+            
+            
+            <label class="auction-type-label">Upcoming auctions
+
+                <span class="upcoming-auctions-checkbox">
+                    <div class="check-box1-indicator"></div>
+                </span>
+            </label>
+
+            <label class="auction-type-label">Live auctions
+                <span class="live-auctions-checkbox">
+                    <div class="check-box2-indicator"></div>
+
+                </span>
+            </label>
         </form>
     </div>
 </div>
 <script>
     // get elements from html document
-    const progress = document.querySelector(".price-progress") as HTMLDivElement | null;
+    const upcoming_auctions_checkbox = document.querySelector(".upcoming-auctions-checkbox") as HTMLInputElement;
+    const live_auctions_checkbox = document.querySelector(".live-auctions-checkbox") as HTMLInputElement;
+    const check_box1_indicator = document.querySelector(".check-box1-indicator") as HTMLInputElement; 
+    const check_box2_indicator = document.querySelector(".check-box2-indicator") as HTMLInputElement; 
     const min_input = document.querySelector(".min_value") as HTMLInputElement;
     const max_input = document.querySelector(".max_value") as HTMLInputElement;
     const price_input_min = document.querySelector(".price-input-min") as HTMLInputElement;
@@ -73,10 +84,7 @@ import "../styles/filterBar.css";
         const minOffset =
             ((parseInt(min_input.value) - parseInt(min_input.min)) / range) *
             100;
-        if (progress) {
-            progress.style.width = width + "%"; // Set the width for div with class progress
-            progress.style.left = minOffset + "%"; // Set left offset for div with class progress
-        }
+        
     };
     const updateInputFields = () => {
         if (price_input_min) price_input_min.value = min_input.value; // Set the min value from slider to the min price input field
@@ -84,6 +92,8 @@ import "../styles/filterBar.css";
     };
 
     min_input?.addEventListener("input", () => {
+        price_button?.classList.remove("price-button-disabled");
+            price_button.disabled = false;
         // if slider min value becomes bigger than max value
         if (parseInt(min_input.value) >= parseInt(max_input.value)) {
             max_input.value = min_input.value; // make max value the same as min value
@@ -92,6 +102,8 @@ import "../styles/filterBar.css";
         updateInputFields(); // update values in price input fields
     });
     max_input.addEventListener("input", () => {
+        price_button?.classList.remove("price-button-disabled");
+        price_button.disabled = false;
         // if slider max value becomes lower than min value
         if (parseInt(max_input.value) <= parseInt(min_input.value)) {
             min_input.value = max_input.value; // make min value the same as max value
@@ -102,44 +114,7 @@ import "../styles/filterBar.css";
     updateProgress(); // update price progress bar
     updateInputFields(); // update values in price input fields
 
-    // Handle focus on min price input
-    price_input_min.addEventListener("focus", () => {
-        price_input_min.classList.add("price-input-focused");
-
-        const minValue = parseInt(price_input_min.value);
-        const minLimit = parseInt(min_input.min);
-        const maxLimit = parseInt(max_input.max);
-
-        // Add warning class if value is out of allowed range
-        if (minValue < minLimit || minValue > maxLimit) {
-            price_input_min.classList.add("price-input-exceeding-value");
-        } else {
-            price_input_min.classList.add("price-input-focused");
-        }
-    });
-
-    // Handle blur on min price input
-    price_input_min.addEventListener("blur", () => {
-        price_input_min.classList.remove(
-            "price-input-focused",
-            "price-input-exceeding-value",
-        );
-        price_input_min.classList.add("price-input-min");
-    });
-
-    // Handle focus on max price input
-    price_input_max.addEventListener("focus", () => {
-        const maxValue = parseInt(price_input_max.value);
-        const minLimit = parseInt(min_input.min);
-        const maxLimit = parseInt(max_input.max);
-
-        // Add appropriate class based on validity
-        if (maxValue < minLimit || maxValue > maxLimit) {
-            price_input_max.classList.add("price-input-exceeding-value");
-        } else {
-            price_input_max.classList.add("price-input-focused");
-        }
-    });
+    
 
     // Handle blur on max price input
     price_input_max.addEventListener("blur", () => {
@@ -155,15 +130,16 @@ import "../styles/filterBar.css";
         price_input_max.value = price_input_max.value.replace(/[^0-9]/g, "");
 
         const maxValue = parseInt(price_input_max.value);
+        const minValue = parseInt(price_input_min.value);
         const minLimit = parseInt(min_input.min);
         const maxLimit = parseInt(max_input.max);
 
-        if (maxValue < minLimit || maxValue > maxLimit) {
-            price_input_max.classList.add("price-input-exceeding-value");
+        if (maxValue < minLimit || maxValue > maxLimit || maxValue < minValue ) {
+            
             price_button?.classList.add("price-button-disabled");
             price_button.disabled = true;
         } else {
-            price_input_max.classList.remove("price-input-exceeding-value");
+            
             price_button?.classList.remove("price-button-disabled");
             price_button.disabled = false;
             price_input_max.classList.add("price-input-focused");
@@ -175,18 +151,30 @@ import "../styles/filterBar.css";
         price_input_min.value = price_input_min.value.replace(/[^0-9]/g, "");
 
         const minValue = parseInt(price_input_min.value);
+        const maxValue = parseInt(price_input_max.value);
         const minLimit = parseInt(min_input.min);
         const maxLimit = parseInt(max_input.max);
 
-        if (minValue < minLimit || minValue > maxLimit) {
-            price_input_min.classList.add("price-input-exceeding-value");
+        if (minValue < minLimit || minValue > maxLimit || minValue > maxValue) {
+            
             price_button?.classList.add("price-button-disabled");
             price_button.disabled = true;
         } else {
-            price_input_min.classList.remove("price-input-exceeding-value");
+            
             price_button?.classList.remove("price-button-disabled");
             price_button.disabled = false;
-            price_input_min.classList.add("price-input-focused");
+            
         }
     });
+    upcoming_auctions_checkbox.onclick = function () {
+        upcoming_auctions_checkbox.classList.toggle("changeCheckBoxBackGround");
+        check_box1_indicator.classList.toggle("indicator-switched-on");
+        
+
+    };
+    live_auctions_checkbox.onclick = function(){
+        live_auctions_checkbox.classList.toggle("changeCheckBoxBackGround");
+        check_box2_indicator.classList.toggle("indicator-switched-on");
+
+    }
 </script>

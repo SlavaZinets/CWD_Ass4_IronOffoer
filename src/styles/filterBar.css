@@ -13,29 +13,30 @@
     padding-bottom: 1.5rem;
     
 }
+.price-filter-content h3, .auction-type-filter-content h3{
+    margin: 1rem 0;
+}
 /* Prices input field */
 /* Basic styles */
 .price-input-min, .price-input-max{
-    border: 3px, black, solid;
-    border-radius: 0.4rem;
-    width: 40%;
-    
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #e8e8e8;
+    box-shadow: 3px 3px 6px #c5c5c5;
+    font-size: medium;
+    font-weight: bold;
+    max-width: 100px;
+        
 }
-/* styles for focused input fields */
-.price-input-focused{
-    border: 3px, green, solid;
-}
-/* styles for highlighting incorrect input values */
-.price-input-exceeding-value{
-    border: 3px, red, solid;
-}
-/*Filter price button styles */
+
+
+
 .price-button{
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.8rem;
     background-color: var(--button-color);
     border-radius: 0.4rem;
+    box-shadow: 3px 3px 6px #c5c5c5;
     color: white;
 }
 /* button hover */
@@ -47,7 +48,7 @@
 /* Styles for disabled button */
 .price-button-disabled{
     background-color: grey;
-    cursor: not-allowed;
+    cursor:default;
     transition: background-color 0.3s ease;
     
     
@@ -100,22 +101,49 @@
     background: var(--accent-color);
     box-shadow: 2px 2px 2px 1px rgb(0 0 0 / 20%);
 }
-/* styles for div which  */
-.price-progress{
-    position: absolute;
-    height: 100%;
-    background: red;
-    width: 25%;
-}
+
 
 /* Auction type filter */
 
 .auction-type-filter-content{
-    padding-top: 2rem;
+    padding-top: 2.1rem;
+}
+.auction-type-label{
+    font-size: 1.5rem;
+    display: block;
+    position: relative;
+    padding-left: 3.5rem;
+    margin-top: 0.5rem;
 }
 
-/* Not forking */
-/* .upcoming-auctions-checkbox .live-auctions-checkbox{
-    width: 2rem;
-    height: 2rem;
-} */
+.upcoming-auctions-checkbox, .live-auctions-checkbox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 35px;
+    width: 35px;
+    background-color: #eee;
+    
+}
+.indicator{
+    display: none;
+}
+.changeCheckBoxBackGround{
+    background-color: #2196F3;
+}
+
+    
+
+.indicator-switched-on {
+    position: absolute;
+    left: 12px;
+    top: 5px;
+    width: 10px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
