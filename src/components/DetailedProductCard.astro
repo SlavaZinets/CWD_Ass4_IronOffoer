@@ -1,0 +1,54 @@
+---
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import "../styles/global.css"
+import "../styles/detailedProductCard.css"
+import { Image } from "astro:assets";
+import carImg from "../images/corvette.jpg"
+
+import car from "../images/car.svg"
+import world from "../images/world.svg"
+import odometer from "../images/odometer.svg"
+import steeringWheel from "../images/steering-wheel.svg"
+import transmission from "../images/transmission.svg"
+import color from "../images/color.svg"
+
+---
+
+<DefaultLayout>
+    <p>bread-crumbs</p>
+    <div class="detailed-card">
+        <div class="lot">
+            <Image class="card-img" src={carImg} alt="corvette" />
+            <div class="characteristics">
+                <div class="car-details">
+                    <h4 class="title">1970 Chevrolet Corvette C3 Stingray for Sale</h4>
+                    <div class="list">
+                        <ul>
+                            <li > <Image class="icon" src={car} alt="Car name: "/> <span>Chevrolet Corvette</span>  </li>
+                            <li> <Image src={world} alt="Country of origin: "/> <span>USA</span></li>
+                            <li> <Image src={odometer} alt="Kilometers: "/> <span>50,000 km</span></li>
+                        </ul>
+                        <ul>
+                            <li> <Image src={steeringWheel} alt="Steering wheel location: "/> <span>Left Hand Drive</span></li>
+                            <li> <Image src={transmission} alt="Transmission: "/><span> 4 Speed Manual</span></li>
+                            <li> <Image src={color} alt="Car's color: "/> <span>Red</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="auction-info">
+                    <div class="bid-details">
+                        <div>
+                            <p>Estimated price:</p>
+                            <p>25,000$ - 30,000$</p>
+                        </div>
+                        <p class="time">12:54:35</p>
+                    </div>
+                    <button class="bid">Bid</button>
+                </div>
+            </div>
+        </div>
+        <div class="description">
+
+        </div>
+    </div>
+</DefaultLayout>
