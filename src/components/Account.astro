@@ -1,0 +1,106 @@
+---
+import '../styles/global.css';
+import '../styles/account.css'
+import { Image } from 'astro:assets';
+import avatarIcon from '../images/icons/default-avatar-icon.jpg'
+import { cars } from "../data/cars.js";
+import ProductCard from "./ProductCard.astro";
+import '../styles/catalog.css';
+
+
+interface Props{
+    name: string
+    lastName: string
+    balance: number
+    dateOfBirth: string,
+    email: string,
+    phoneNumber: string,
+    dateCreated: string
+
+}
+
+const {name, lastName, balance, dateOfBirth, email, phoneNumber, dateCreated} = Astro.props;
+
+---
+<script>
+    const personal_info_pop_up = document.querySelector(".personal-info-pop-up");
+    const edit_info_button = document.querySelector(".edit-info-button");
+    edit_info_button?.addEventListener("click", ()=>{
+        personal_info_pop_up?.classList.add("personal-info-pop-up-active");
+    })
+</script>
+<div class="account-container">
+    <div class="sub-header">
+        <h1>Hello, {name}</h1>
+        <div class="balance-sign-out-div">
+            <h2>Your balance: {balance}</h2>
+            <button>Sign out</button>
+        </div>
+    </div>
+    
+    <div class="account">
+        <div class="profile-sidebar">
+            <div class="avatar-section">
+                <Image src={avatarIcon} alt="avatar" class = "avatar-img"></Image>
+                <span class="avatar-label">{name} {lastName}</span>
+                <span class="avatar-label">{email}</span>
+                <span class="avatar-label"></span>
+                <button>Change avatar icon</button>
+            </div>
+            <div class="nav-options">
+                <button class="option-button">Personal information</button>
+                <button class="option-button">Wish list</button>
+            </div>
+        </div>
+        
+
+        <div class="personal-info-section">
+            <div class="personal-info-header">
+                <h3>Personal info</h3>
+                <button class="edit-info-button">Edit info</button>
+            </div>
+            <div class="personal-info-container">
+                <div class="personal-info">
+                    <h4>Name</h4>
+                    <span class="info-cell">{name}</span>
+                </div>
+                <div class="personal-info">
+                    <h4>Last Name</h4>
+                    <span class="info-cell">{lastName}</span>
+                </div>
+                <div class="personal-info">
+                    <h4>Date of birth</h4>
+                    <span class="info-cell">{dateOfBirth}</span>
+                </div>
+                <div class="personal-info">
+                    <h4>Email address</h4>
+                    <span class="info-cell">{email}</span>
+                </div>
+                <div class="personal-info">
+                    <h4>Phone number</h4>
+                    <span class="info-cell"></span>{phoneNumber}</span>
+                </div>
+                <div class="personal-info">
+                    <h4>Date created</h4>
+                    <span class="info-cell"></span>{dateCreated}</span>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+<div class="personal-info-pop-up">
+    <form action="" class="personal-info-form">
+        <h2 class="form-heading">Edit personal information</h2>
+        <label for="first-name">First Name</label>
+        <input type="text" placeholder="Enter Name" name="first-name">
+        <label for="last-name">Last Name</label>
+        <input type="text" placeholder="Enter Last name" name="last-name">
+        <label for="email">Email</label>
+        <input type="text" placeholder="Enter Email" name="email">
+        <label for="birth-date">Date of Birth</label>
+        <input type="text" placeholder="Enter date of birth" name="birth-date">
+        
+    </form>
+</div>

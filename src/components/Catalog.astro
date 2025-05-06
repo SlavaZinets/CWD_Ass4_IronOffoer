@@ -2,12 +2,13 @@
 import { cars } from "../data/cars.js";
 import ProductCard from "./ProductCard.astro";
 import '../styles/catalog.css';
+
 ---
 
 <div class="catalog">
     {
-        cars.map((car) => (
-            <ProductCard {...car}/>
-        ))
+            cars.map((car) => (
+                <ProductCard {...car}/>
+            ))
     }
 </div>
