@@ -38,28 +38,28 @@
     grid-template-columns: 2fr 2fr 2fr;
 }
 
-.personal-info-pop-up{
+.edit-info-pop-up{
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+}
+.edit-info-pop-up-active{
+   display: block; 
 }
 
-.personal-info-pop-up-active{
+
+
+.form-items{
     display: flex;
-    
+    flex-direction: column;
+    align-items: start;
 }
-.personal-info-form{
-    background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      width: 300px;
-      text-align: center;
+.submit-button{
+    display: flex;
+    justify-content: end;
 }

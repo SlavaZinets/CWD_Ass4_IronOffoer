@@ -3,32 +3,18 @@ import '../styles/global.css';
 import '../styles/account.css'
 import { Image } from 'astro:assets';
 import avatarIcon from '../images/icons/default-avatar-icon.jpg'
-import { cars } from "../data/cars.js";
-import ProductCard from "./ProductCard.astro";
+import PopUpContainer from './PopUpContainer.astro';
+import '../styles/popUpContainer.css'
+
 import '../styles/catalog.css';
-
-
-interface Props{
-    name: string
-    lastName: string
-    balance: number
-    dateOfBirth: string,
-    email: string,
-    phoneNumber: string,
-    dateCreated: string
-
-}
 
 const {name, lastName, balance, dateOfBirth, email, phoneNumber, dateCreated} = Astro.props;
 
+let test = false;
+
+
 ---
-<script>
-    const personal_info_pop_up = document.querySelector(".personal-info-pop-up");
-    const edit_info_button = document.querySelector(".edit-info-button");
-    edit_info_button?.addEventListener("click", ()=>{
-        personal_info_pop_up?.classList.add("personal-info-pop-up-active");
-    })
-</script>
+
 <div class="account-container">
     <div class="sub-header">
         <h1>Hello, {name}</h1>
@@ -57,7 +43,7 @@ const {name, lastName, balance, dateOfBirth, email, phoneNumber, dateCreated} = 
         <div class="personal-info-section">
             <div class="personal-info-header">
                 <h3>Personal info</h3>
-                <button class="edit-info-button">Edit info</button>
+                <button class="edit-info-button" >Edit info</button>
             </div>
             <div class="personal-info-container">
                 <div class="personal-info">
@@ -89,18 +75,50 @@ const {name, lastName, balance, dateOfBirth, email, phoneNumber, dateCreated} = 
         </div>
         
     </div>
-</div>
-<div class="personal-info-pop-up">
-    <form action="" class="personal-info-form">
+    
+    <PopUpContainer>
         <h2 class="form-heading">Edit personal information</h2>
-        <label for="first-name">First Name</label>
-        <input type="text" placeholder="Enter Name" name="first-name">
-        <label for="last-name">Last Name</label>
-        <input type="text" placeholder="Enter Last name" name="last-name">
-        <label for="email">Email</label>
-        <input type="text" placeholder="Enter Email" name="email">
-        <label for="birth-date">Date of Birth</label>
-        <input type="text" placeholder="Enter date of birth" name="birth-date">
-        
-    </form>
+        <div class="form-items">
+          <div class="form-item">
+            <label for="first-name">First Name</label>
+            <input type="text" placeholder="Enter Name" name="first-name" />
+            <label for="last-name">Last Name</label>
+            <input type="text" placeholder="Enter Last name" name="last-name" />
+          </div>
+          <div class="form-item">
+            <label for="email">Email</label>
+            <input type="text" placeholder="Enter Email" name="email" />
+          </div>
+          <div class="form-item">
+            <label for="phone-number">Phone Number</label>
+            <input type="text" placeholder="Enter Email" name="phone-number" />
+          </div>
+          <div class="form-item">
+            <label for="birth-date">Date of Birth</label>
+            <input type="text" placeholder="Enter date of birth" name="birth-date" />
+          </div>
+        </div>
+        <div class="submit-button">
+          <button class="submit-button">Save Changes</button>
+        </div>
+    </PopUpContainer>
 </div>
+{/* <!-- <div class="personal-info-pop-up">
+    <form action="" class="personal-info-form">
+                <div class="pop-up-button">
+            <button class="submit-button">Save Changes</button> 
+        </div>
+    </form>
+    
+</div> --> */}
+
+<script>
+     const edit_info_button = document.querySelector(".edit-info-button")
+     const pop_up = document.querySelector(".pop-up-container");
+     edit_info_button?.addEventListener( "click", () => {
+        pop_up?.classList.add("active")
+     }) 
+</script>
+
+
+
