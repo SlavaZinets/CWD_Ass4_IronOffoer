@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 3.5rem;
+    padding-left: 3.5rem;
 }
 .balance-sign-out-div{
     display: flex;
@@ -31,16 +31,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 3.5rem;
+    
 }
 .personal-info-container{
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
 }
-
-
-
-
 
 .form-items{
     display: grid;
@@ -65,4 +61,12 @@
 .submit-button{
     display: flex;
     justify-content: end;
+}
+
+
+.option-section{
+    display: none;
+}
+.option-section-active{
+    display: block;
 }

@@ -6,6 +6,8 @@ import avatarIcon from "../images/icons/default-avatar-icon.jpg";
 import PopUpContainer from "./PopUpContainer.astro";
 import "../styles/popUpContainer.css";
 import "../styles/catalog.css";
+import { cars } from "../data/cars.js";
+import ProductCard from "./ProductCard.astro";
 const {
     name,
     lastName,
@@ -33,49 +35,60 @@ const {
                 <span class="avatar-label">{name} {lastName}</span>
                 <span class="avatar-label">{email}</span>
                 <span class="avatar-label"></span>
-                <button>Change avatar icon</button>
+                <button class="change-avatar-button">Change avatar icon</button>
             </div>
             <div class="nav-options">
                 <button class="option-button">Personal information</button>
                 <button class="option-button">Wish list</button>
             </div>
         </div>
-
         <div class="personal-info-section">
-            <div class="personal-info-header">
-                <h3>Personal info</h3>
-                <button class="edit-info-button">Edit info</button>
-            </div>
-            <div class="personal-info-container">
-                <div class="personal-info">
-                    <h4>Name</h4>
-                    <span class="info-cell">{name}</span>
-                </div>
-                <div class="personal-info">
-                    <h4>Last Name</h4>
-                    <span class="info-cell">{lastName}</span>
-                </div>
-                <div class="personal-info">
-                    <h4>Email address</h4>
-                    <span class="info-cell">{email}</span>
-                </div>
-                <div class="personal-info">
-                    <h4>Phone number</h4>
-                    <span class="info-cell">{phoneNumber}</span>
-                </div>
-                <div class="personal-info">
-                    <h4>Date of birth</h4>
-                    <span class="info-cell">{dateOfBirth}</span>
+            <div class="option-section option-section-active">
+                <div class="personal-info-header">
+                    <h3>Personal info</h3>
+                    <button class="edit-info-button">Edit info</button>
                 </div>
                 
-                <div class="personal-info">
-                    <h4>Date created</h4>
-                    <span class="info-cell"></span>{dateCreated}
+                <div class="personal-info-container">
+                    <div class="personal-info">
+                        <h4>Name</h4>
+                        <span class="info-cell">{name}</span>
+                    </div>
+                    <div class="personal-info">
+                        <h4>Last Name</h4>
+                        <span class="info-cell">{lastName}</span>
+                    </div>
+                    <div class="personal-info">
+                        <h4>Email address</h4>
+                        <span class="info-cell">{email}</span>
+                    </div>
+                    <div class="personal-info">
+                        <h4>Phone number</h4>
+                        <span class="info-cell">{phoneNumber}</span>
+                    </div>
+                    <div class="personal-info">
+                        <h4>Date of birth</h4>
+                        <span class="info-cell">{dateOfBirth}</span>
+                    </div>
+                    
+                    <div class="personal-info">
+                        <h4>Date created</h4>
+                        <span class="info-cell"></span>{dateCreated}
+                    </div>
                 </div>
             </div>
-            
+            <div class="option-section">
+                <div class="catalog">
+                    {
+                        cars.map((car) => (
+                        <ProductCard {...car}/>
+                    ))
+                    }
+                </div>
+            </div>
         </div>
     </div>
+    
 </div>
 
 <PopUpContainer>
@@ -144,11 +157,14 @@ const {
 
 <script>
     import { accounts } from "../data/accounts";
+
     
 
     const edit_info_button = document.querySelector(".edit-info-button");
     const pop_up = document.querySelector(".pop-up-container");
     const pop_up_inputs = document.querySelectorAll(".pop-up-input");
+    const option_buttons = document.querySelectorAll(".option-button");
+    const option_sections = document.querySelectorAll(".option-section");
     edit_info_button?.addEventListener("click", () => {
         pop_up?.classList.add("active");
     });
@@ -174,9 +190,6 @@ const {
         document.querySelectorAll(".info-cell").forEach((cell, i) => {
         const key = fields[i];
             (accounts as any)[key] != "" ?(cell as HTMLElement).textContent = (accounts as any)[key] : "";
-
-            
-            
         });
         
         // const nameSpan = document.querySelector(".sub-header h1");
@@ -188,4 +201,12 @@ const {
         // if (avatarLabel2) avatarLabel2.textContent = accounts[0].email;
         pop_up?.classList.remove("active");
     });
+
+    option_buttons.forEach((option_button, index) =>{
+        option_button.addEventListener("click",() =>{
+            console.log("button clicked")
+            option_sections.forEach(option_section => option_section.classList.remove("option-section-active"));
+            option_sections[index].classList.add("option-section-active")
+        })
+    })
 </script>
