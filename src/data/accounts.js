@@ -1,6 +1,5 @@
-export const accounts =[
+export let accounts =[
     {
-        
         name: "Maksym",
         lastName: "Chechotkin",
         balance: 1000,
