@@ -11,21 +11,35 @@
     border-radius: 0.25rem;
 }
 
+.img-placeholder-container {
+    width: 100%;
+    height: auto;
+    border-radius: 0.25rem;
+    background-color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-placeholder {
+    width: 50%;
+    height: auto;
+}
+
 .icon {
     width: 2rem;
     height: 2rem;
-    filter: invert(26%) sepia(4%) saturate(37%) hue-rotate(359deg) brightness(93%) contrast(78%);
 }
 
 
 .title {
-    font-size: 2rem;
-    padding:0 0 0.5rem 0.5rem;
+    font-size: 2.5rem;
+    padding-bottom: 0.5rem;
     border-bottom: 1px solid #ccc;
 }
 
 .price {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     padding-block: 2rem;
     color: var(--price-color);

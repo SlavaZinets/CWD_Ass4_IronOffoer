@@ -1,67 +1,74 @@
 ---
 import "../styles/global.css"
 import "../styles/detailedProductCard.css"
-import { Image } from "astro:assets";
-import carImg from "../images/car.webp" // Fallback image
-
-import carIcon from "../images/car.svg"
-import world from "../images/world.svg"
-import odometer from "../images/odometer.svg"
-import steeringWheel from "../images/steering-wheel.svg"
-import transmission from "../images/transmission.svg"
-import color from "../images/color.svg"
+import {Image} from "astro:assets";
 
 
-const { car } = Astro.props;
-
-// id: 1,
-//     title: "Audi A3",
-//     price: 10000,
-//     timeLeft: "10 days",
-//     imageUrl: "../images/car.webp"
+import carIcon from "../images/icons/carInfoIcons/car.svg"
+import world from "../images/icons/carInfoIcons/world.svg"
+import odometer from "../images/icons/carInfoIcons/odometer.svg"
+import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
+import transmission from "../images/icons/carInfoIcons/transmission.svg"
+import color from "../images/icons/carInfoIcons/color.svg"
+import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
 
 
 
-// id
-// title
-// price
-// origin
-// run
-// wheel
-//transmission
-//color
-//price
+const {car} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,gif,webp}');
+const getImage = images[car.imageUrl];
+
+const handleClick = () => {
+    alert("Button clicked");
+}
 ---
 
-    <div class="detailed-card">
-        <div class="lot">
-            <Image class="card-img" src={carImg} alt="corvette" />
-
-            <div class="characteristics">
-                <div class="car-details">
-                    <h3 class="title">{car?.title || "A nice car"} for sale</h3>
-
-
-
-                            <p class="price">{car?.price || "unknown price"} €</p>
-
-                    <div class="list">
-                        <ul>
-                            <li > <Image class="icon" src={carIcon} alt="Car name: "/> <span>{car?.title || "Unknown car"}</span>  </li>
-                            <li> <Image class="icon" src={world} alt="Country of origin: "/> <span>{car?.origin || "USA"}</span></li>
-                            <li> <Image class="icon" src={odometer} alt="Kilometers: "/> <span>{car?.run || "unknown run"}</span></li>
-                        </ul>
-                        <ul>
-                            <li> <Image class="icon" src={steeringWheel} alt="Steering wheel location: "/> <span>{car?.wheel || "unknown"}</span></li>
-                            <li> <Image class="icon" src={transmission} alt="Transmission: "/><span>{car?.transmission || "unknown transmission"}</span></li>
-                            <li> <Image class="icon" src={color} alt="Car's color: "/> <span>{car?.color || "unknown color"}</span></li>
-                        </ul>
-                    </div>
+<div class="detailed-card">
+    <div class="lot">
+        {getImage ? (
+                <Image class="card-img" src={getImage()} alt={car.title}/>
+        ) : (
+                <div class="img-placeholder-container">
+                    <Image class="img-placeholder" src={imagePlaceholder} alt={car.title}/>
                 </div>
-                <div class="auction-info">
+        )}
+        <div class="characteristics">
+            <div class="car-details">
+                <h3 class="title">{car?.title || "A nice car"} for sale</h3>
 
-                    <button class="buy">Buy</button>
+
+                <p class="price">{car?.price || "unknown price"} €</p>
+
+                <div class="list">
+                    <ul>
+                        <li>
+                            <Image class="icon" src={carIcon} alt="Car name: "/>
+                            <span>{car?.title || "Unknown car"}</span></li>
+                        <li>
+                            <Image class="icon" src={world} alt="Country of origin: "/>
+                            <span>{car?.origin || "USA"}</span></li>
+                        <li>
+                            <Image class="icon" src={odometer} alt="Kilometers: "/>
+                            <span>{car?.run || "unknown run"}</span></li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <Image class="icon" src={steeringWheel} alt="Steering wheel location: "/>
+                            <span>{car?.wheel || "unknown"}</span></li>
+                        <li>
+                            <Image class="icon" src={transmission} alt="Transmission: "/>
+                            <span>{car?.transmission || "unknown transmission"}</span></li>
+                        <li>
+                            <Image class="icon" src={color} alt="Car's color: "/>
+                            <span>{car?.color || "unknown color"}</span></li>
+                    </ul>
                 </div>
+            </div>
+            <div class="auction-info">
+                <button class="buy">Buy now</button>
             </div>
         </div>
     </div>
+</div>
+
