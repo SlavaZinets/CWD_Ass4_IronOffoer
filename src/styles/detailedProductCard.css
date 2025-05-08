@@ -11,6 +11,10 @@
     border-radius: 0.25rem;
 }
 
+.img-container{
+    position: relative;
+}
+
 .img-placeholder-container {
     width: 100%;
     height: auto;
@@ -76,11 +80,16 @@
     padding-block: 2rem;
 }
 
+
+
+
 .buy {
     background-color: var(--price-color);
     padding: 0.5rem;
     color: var(--text-color-light);
     border-radius: 0.25rem;
 }
+
+
 
 

@@ -11,6 +11,7 @@ import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
 import transmission from "../images/icons/carInfoIcons/transmission.svg"
 import color from "../images/icons/carInfoIcons/color.svg"
 import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
+import LikeButton from "./LikeButton.astro";
 
 
 
@@ -27,7 +28,10 @@ const handleClick = () => {
 <div class="detailed-card">
     <div class="lot">
         {getImage ? (
-                <Image class="card-img" src={getImage()} alt={car.title}/>
+                <div class="img-container">
+                    <LikeButton isAbsolute={true} isLiked={false}/>
+                    <Image class="card-img" src={getImage()} alt={car.title}/>
+                </div>
         ) : (
                 <div class="img-placeholder-container">
                     <Image class="img-placeholder" src={imagePlaceholder} alt={car.title}/>
@@ -36,10 +40,7 @@ const handleClick = () => {
         <div class="characteristics">
             <div class="car-details">
                 <h3 class="title">{car?.title || "A nice car"} for sale</h3>
-
-
-                <p class="price">{car?.price || "unknown price"} €</p>
-
+                    <p class="price">{car?.price || "unknown price"} €</p>
                 <div class="list">
                     <ul>
                         <li>
@@ -66,7 +67,7 @@ const handleClick = () => {
                 </div>
             </div>
             <div class="auction-info">
-                <button class="buy">Buy now</button>
+                    <button class="buy">Buy now</button>
             </div>
         </div>
     </div>
