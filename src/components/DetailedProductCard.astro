@@ -1,54 +1,67 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
 import "../styles/global.css"
 import "../styles/detailedProductCard.css"
 import { Image } from "astro:assets";
-import carImg from "../images/corvette.jpg"
+import carImg from "../images/car.webp" // Fallback image
 
-import car from "../images/car.svg"
+import carIcon from "../images/car.svg"
 import world from "../images/world.svg"
 import odometer from "../images/odometer.svg"
 import steeringWheel from "../images/steering-wheel.svg"
 import transmission from "../images/transmission.svg"
 import color from "../images/color.svg"
 
+
+const { car } = Astro.props;
+
+// id: 1,
+//     title: "Audi A3",
+//     price: 10000,
+//     timeLeft: "10 days",
+//     imageUrl: "../images/car.webp"
+
+
+
+// id
+// title
+// price
+// origin
+// run
+// wheel
+//transmission
+//color
+//price
 ---
 
-<DefaultLayout>
-    <p>bread-crumbs</p>
     <div class="detailed-card">
         <div class="lot">
             <Image class="card-img" src={carImg} alt="corvette" />
+
             <div class="characteristics">
                 <div class="car-details">
-                    <h4 class="title">1970 Chevrolet Corvette C3 Stingray for Sale</h4>
+                    <h3 class="title">{car?.title || "A nice car"} for sale</h3>
+
+
+
+                            <p class="price">{car?.price || "unknown price"} €</p>
+
                     <div class="list">
                         <ul>
-                            <li > <Image class="icon" src={car} alt="Car name: "/> <span>Chevrolet Corvette</span>  </li>
-                            <li> <Image src={world} alt="Country of origin: "/> <span>USA</span></li>
-                            <li> <Image src={odometer} alt="Kilometers: "/> <span>50,000 km</span></li>
+                            <li > <Image class="icon" src={carIcon} alt="Car name: "/> <span>{car?.title || "Unknown car"}</span>  </li>
+                            <li> <Image class="icon" src={world} alt="Country of origin: "/> <span>{car?.origin || "USA"}</span></li>
+                            <li> <Image class="icon" src={odometer} alt="Kilometers: "/> <span>{car?.run || "unknown run"}</span></li>
                         </ul>
                         <ul>
-                            <li> <Image src={steeringWheel} alt="Steering wheel location: "/> <span>Left Hand Drive</span></li>
-                            <li> <Image src={transmission} alt="Transmission: "/><span> 4 Speed Manual</span></li>
-                            <li> <Image src={color} alt="Car's color: "/> <span>Red</span></li>
+                            <li> <Image class="icon" src={steeringWheel} alt="Steering wheel location: "/> <span>{car?.wheel || "unknown"}</span></li>
+                            <li> <Image class="icon" src={transmission} alt="Transmission: "/><span>{car?.transmission || "unknown transmission"}</span></li>
+                            <li> <Image class="icon" src={color} alt="Car's color: "/> <span>{car?.color || "unknown color"}</span></li>
                         </ul>
                     </div>
                 </div>
                 <div class="auction-info">
-                    <div class="bid-details">
-                        <div>
-                            <p>Estimated price:</p>
-                            <p>25,000$ - 30,000$</p>
-                        </div>
-                        <p class="time">12:54:35</p>
-                    </div>
-                    <button class="bid">Bid</button>
+
+                    <button class="buy">Buy</button>
                 </div>
             </div>
         </div>
-        <div class="description">
-
-        </div>
     </div>
-</DefaultLayout>

@@ -1,0 +1,19 @@
+---
+import DetailedProductCard from "../../components/DetailedProductCard.astro";
+import { cars } from "../../data/cars.js";
+import DefaultLayout from "../../layouts/DefaultLayout.astro";
+
+export function getStaticPaths() {
+    return cars.map(car => ({
+        params: { id: car.id.toString() },
+        props: { car }
+    }));
+}
+
+const { car } = Astro.props;
+---
+
+<DefaultLayout>
+   <DetailedProductCard car={car} />
+
+</DefaultLayout>

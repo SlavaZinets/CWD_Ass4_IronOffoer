@@ -1,49 +1,72 @@
 .lot {
-    display: flex;
-    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 5rem;
+    padding: 2rem;
 }
 
 .card-img {
-    border: 1px solid #000;
-    width: 50%;
+    width: 100%;
     height: auto;
+    border-radius: 0.25rem;
 }
 
-.characteristics {
-    gap: 10rem;
+.icon {
+    width: 2rem;
+    height: 2rem;
+    filter: invert(26%) sepia(4%) saturate(37%) hue-rotate(359deg) brightness(93%) contrast(78%);
 }
+
 
 .title {
-    padding: .5rem;
+    font-size: 2rem;
+    padding:0 0 0.5rem 0.5rem;
+    border-bottom: 1px solid #ccc;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-block: 2rem;
+    color: var(--price-color);
 }
 
 .list {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: 2rem;
+    color: var(--text-color-subactive);
+    margin-bottom: 4rem;
 }
 
 .list ul {
+    display: grid;
+    gap: 1rem;
+}
+
+.list ul li {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 1rem;
 }
 
 .auction-info {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    gap: 1rem;
 }
 
 .bid-details {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
     padding-block: 2rem;
 }
 
-.bid {
-    width: 50%;
-    align-self: center;
-    border: #000 1px solid;
-    cursor: pointer;
+.buy {
+    background-color: var(--price-color);
+    padding: 0.5rem;
+    color: var(--text-color-light);
+    border-radius: 0.25rem;
 }
+
+
