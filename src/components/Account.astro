@@ -2,7 +2,11 @@
 import "../styles/global.css";
 import "../styles/account.css";
 import { Image } from "astro:assets";
-import avatarIcon from "../images/icons/default-avatar-icon.jpg";
+import defaultAvatarIcon from "../images/icons/default-avatar-icon.jpg";
+import avatarIcon1 from "../images/icons/avatar_icon1.png";
+import avatarIcon2 from "../images/icons/avatar_icon2.png";
+import avatarIcon3 from "../images/icons/avatar_icon3.png";
+import editIcon from "../images/icons/editIco.svg"
 import PopUpContainer from "./PopUpContainer.astro";
 import "../styles/popUpContainer.css";
 import "../styles/catalog.css";
@@ -15,7 +19,7 @@ const {
     dateOfBirth,
     email,
     phoneNumber,
-    dateCreated,
+    dateModified,
 } = Astro.props;
 ---
 
@@ -24,29 +28,33 @@ const {
         <h1>Hello, {name}</h1>
         <div class="balance-sign-out-div">
             <h2>Your balance: {balance}</h2>
-            <button>Sign out</button>
+            <button class="sign-out-button">Sign out</button>
         </div>
     </div>
 
     <div class="account">
         <div class="profile-sidebar">
             <div class="avatar-section">
-                <Image src={avatarIcon} alt="avatar" class="avatar-img" />
-                <span class="avatar-label">{name} {lastName}</span>
-                <span class="avatar-label">{email}</span>
-                <span class="avatar-label"></span>
+                <div class="avatar-div">
+                    <Image src={defaultAvatarIcon} alt="avatar" class="avatar-img" />
+                </div>
+                <span class="avatar-label-name">{name} {lastName}</span>
+                <span class="avatar-label-email">{email}</span>
                 <button class="change-avatar-button">Change avatar icon</button>
             </div>
             <div class="nav-options">
-                <button class="option-button">Personal information</button>
+                <button class="option-button clicked-option-button">Personal information</button>
                 <button class="option-button">Wish list</button>
             </div>
         </div>
         <div class="personal-info-section">
             <div class="option-section option-section-active">
                 <div class="personal-info-header">
-                    <h3>Personal info</h3>
-                    <button class="edit-info-button">Edit info</button>
+                    <h3 class="personal-info-title">Personal information</h3>
+                    <div class="edit-info">
+                        <button class="edit-info-button"><Image src={editIcon} alt="edit icon button" class="edit-icon"></button>
+                        <span class="editTitleBtn">Edit</span>
+                    </div>
                 </div>
                 
                 <div class="personal-info-container">
@@ -72,8 +80,8 @@ const {
                     </div>
                     
                     <div class="personal-info">
-                        <h4>Date created</h4>
-                        <span class="info-cell"></span>{dateCreated}
+                        <h4>Date modified</h4>
+                        <span class="info-cell">{dateModified}</span>
                     </div>
                 </div>
             </div>
@@ -92,57 +100,75 @@ const {
 </div>
 
 <PopUpContainer>
-    <h2 class="form-heading">Edit personal information</h2>
-    <div class="form-items">
-        <div class="form-item-name-fields">
-            <label class="item-label" for="first-name">First Name</label>
-            <label class="item-label" for="last-name">Last Name</label>
-            <input
-                class="pop-up-input"
-                type="text"
-                placeholder="Enter Name"
-                name="first-name"
-            />
-            
-            <input
-                class="pop-up-input"
-                type="text"
-                placeholder="Enter Last name"
-                name="last-name"
-            />
+    <div class="edit-info-form">
+        <h2 class="form-heading">Edit personal information</h2>
+        <div class="form-items">
+            <div class="form-item-name-fields">
+                <label class="item-label" for="first-name">First Name</label>
+                <label class="item-label" for="last-name">Last Name</label>
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter Name"
+                    name="first-name"
+                />
+                
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter Last name"
+                    name="last-name"
+                />
+            </div>
+            <div class="form-item">
+                <label class="item-label" for="email">Email</label>
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter Email"
+                    name="email"
+                />
+            </div>
+            <div class="form-item">
+                <label class="item-label" for="phone-number">Phone Number</label>
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter Email"
+                    name="phone-number"
+                />
+            </div>
+            <div class="form-item">
+                <label class="item-label" for="birth-date">Date of Birth</label>
+                <input
+                    class="form-input"
+                    type="text"
+                    placeholder="Enter date of birth"
+                    name="birth-date"
+                />
+            </div>
         </div>
-        <div class="form-item">
-            <label class="item-label" for="email">Email</label>
-            <input
-                class="pop-up-input"
-                type="text"
-                placeholder="Enter Email"
-                name="email"
-            />
-        </div>
-        <div class="form-item">
-            <label class="item-label" for="phone-number">Phone Number</label>
-            <input
-                class="pop-up-input"
-                type="text"
-                placeholder="Enter Email"
-                name="phone-number"
-            />
-        </div>
-        <div class="form-item">
-            <label class="item-label" for="birth-date">Date of Birth</label>
-            <input
-                class="pop-up-input"
-                type="text"
-                placeholder="Enter date of birth"
-                name="birth-date"
-            />
+        <div class="submit-button">
+            <button class="submit-button">Save Changes</button>
         </div>
     </div>
-    <div class="submit-button">
-        <button class="submit-button">Save Changes</button>
+    <div class="avatar-select-menu">
+        <div class="avatar-container">
+            <div class="avatar-ico">
+                <Image src={avatarIcon1} alt="avatar1" class="avatarIcon"></Image>
+            </div>
+            <div class="avatar-ico">
+                <Image src={avatarIcon2} alt="avatar1" class="avatarIcon"></Image>
+            </div>
+            <div class="avatar-ico">
+                <Image src={avatarIcon3} alt="avatar1" class="avatarIcon"></Image>
+            </div>
+        </div>
+        <button class="select-avatar-button">Select</button>
     </div>
 </PopUpContainer>
+
+    
 
 {
     /* <!-- <div class="personal-info-pop-up">
@@ -159,15 +185,23 @@ const {
     import { accounts } from "../data/accounts";
 
     
-
-    const edit_info_button = document.querySelector(".edit-info-button");
+    const change_avatar_icon_button = document.querySelector(".change-avatar-button");
+    const avatar_container = document.querySelector(".avatar-container");
+    const edit_info_form = document.querySelector('.edit-info-form');
+    const edit_info_button = document.querySelector(".edit-info");
     const pop_up = document.querySelector(".pop-up-container");
-    const pop_up_inputs = document.querySelectorAll(".pop-up-input");
+    const pop_up_inputs = document.querySelectorAll(".form-input");
     const option_buttons = document.querySelectorAll(".option-button");
     const option_sections = document.querySelectorAll(".option-section");
     edit_info_button?.addEventListener("click", () => {
+        edit_info_form?.classList.add("edit-info-form-active");
         pop_up?.classList.add("active");
+        
     });
+    change_avatar_icon_button?.addEventListener("click", ()=>{
+        avatar_container?.classList.add("avatar-container-active");
+        pop_up?.classList.add("active");
+    })
     const submit_button = document.querySelector(".submit-button");
     submit_button?.addEventListener("click", () => {
         const input_values: string[] = [];
@@ -175,12 +209,14 @@ const {
             const inputElement = pop_up_input as HTMLInputElement;
             input_values.push(inputElement.value);
         });
+        input_values.push(getCurrentDate())
         const fields = [
             "name",
             "lastName",
             "dateOfBirth",
             "email",
             "phoneNumber",
+            "dateModified"
             
         ];
         console.log(input_values);
@@ -189,7 +225,8 @@ const {
         });
         document.querySelectorAll(".info-cell").forEach((cell, i) => {
         const key = fields[i];
-            (accounts as any)[key] != "" ?(cell as HTMLElement).textContent = (accounts as any)[key] : "";
+            
+            (accounts as any)[key] != "" ? (cell as HTMLElement).textContent = (accounts as any)[key] : "";
         });
         
         // const nameSpan = document.querySelector(".sub-header h1");
@@ -204,9 +241,23 @@ const {
 
     option_buttons.forEach((option_button, index) =>{
         option_button.addEventListener("click",() =>{
-            console.log("button clicked")
+            option_buttons.forEach(clicked_option_button => clicked_option_button.classList.remove("clicked-option-button"));
             option_sections.forEach(option_section => option_section.classList.remove("option-section-active"));
+            option_button.classList.add("clicked-option-button")
             option_sections[index].classList.add("option-section-active")
         })
     })
+
+    function getCurrentDate(){
+        const date = new Date();
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        // This arrangement can be altered based on how we want the date's format to appear.
+        let currentDate = `${day}-${month}-${year}`;
+
+        return currentDate;
+    }
 </script>

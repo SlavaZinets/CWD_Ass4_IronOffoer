@@ -8,8 +8,10 @@
     --text-color: #252525;
     --text-color-subactive: #575757;
     --text-color-light: #eeeef9;
-    --button-color: #C41111ff
-
+    --button-color: #C41111ff;
+    --secondary-button-color:#EFEFEF;
+    --border-color: #E5E5E7;
+    --text-muted-color: #76777d;
 }
 
 * {

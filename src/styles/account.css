@@ -1,47 +1,120 @@
+.account-container{
+ 
+}
 .sub-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 3.5rem;
+
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+
 }
 .balance-sign-out-div{
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+.sign-out-button{
+    background-color: var(--button-color);
+    border-radius: 1.5rem;
+    color: white;
 }
 .account{
     display: grid;
     grid-template-columns: 1fr 3fr;
+    gap: 2rem;
 }
 
 .avatar-section{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+.avatar-div{
+    width: 180px;
+    height: 180px;
 }
 .avatar-img{
-    width: 60%;
+    width: 100%;
     height: auto;
+}
+.avatar-label-name{
+    font-size: 1.5rem;
+}
+.avatar-label-email{
+    color: var(--text-muted-color);
+}
+.change-avatar-button{
+    padding: 0.2rem 0;
 }
 .nav-options{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: start;
+}
+.option-button{
+    padding: 1rem 0;
+    font-size: 1.5rem; 
+    color: var(--text-muted-color);
+}
+.clicked-option-button{
+    color: var(--button-color);
+}
+.option-section{
+    display: none;
+}
+.option-section-active{
+    display: block;
+    
 }
 .personal-info-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
     
+}
+.personal-info-title{
+    font-size: 1.8rem;
+}
+.edit-info{
+    display: flex;
+    align-items: center;
+    background-color: var(--secondary-button-color);
+    border-radius: 0.3rem;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem 0.2rem 0.7rem;
+    cursor: pointer;
+}
+.edit-info-button{
+    padding: 0;
+}
+.editTitleBtn{
+   color: #bebebe; 
 }
 .personal-info-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-
+.info-cell{
+    color: var(--text-muted-color);
+}
+.edit-info-form{
+    display: none;
+}
+.edit-info-form-active{
+    display: block;
+}
+.form-heading{
+    padding: 2rem 0;
+}
 .form-items{
     display: grid;
     grid-template-columns: 1fr; /* Single column layout */
     gap: 10px;
+    margin-bottom:1rem ;
 }
 .form-item{
     display: grid;
@@ -50,23 +123,75 @@
 .form-item-name-fields{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 .item-label{
     text-align: left;
 }
-.pop-up-input{
+.form-input{
     width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
 }
-
+.form-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  outline: none;
+  
+}
 .submit-button{
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.submit-button:hover {
+    background-color: #3a78c2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+
+.avatar-container{
+    display: block;
     display: flex;
-    justify-content: end;
 }
 
-
-.option-section{
-    display: none;
-}
-.option-section-active{
+.avatar-container-active{
     display: block;
 }
+.avatar-ico{
+    width: 180px;
+    height: 270px;
+}
+.avatarIcon{
+    width: 100%;
+    height: auto;
+}
+.select-avatar-button {
+    background-color: transparent;
+    color: #4a90e2;
+    padding: 8px 16px;
+    border: 2px solid #4a90e2;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .select-avatar-button:hover {
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  
+  
