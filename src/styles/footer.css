@@ -1,10 +1,17 @@
 .footer{
-    
-    
     width: 100%;
     background-color: var(--accent-color);
-    color: white;
+    color: var(--text-color-light);
 }
+
+.footer_inner{
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
 .social-media-li{
     display: flex;
     gap: 0.5rem;
@@ -15,21 +22,16 @@
     height: auto;
 
 }
-li{
-    padding: 0.5rem;
-    font-size: 1rem;
+.footer-list-items{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
+
 .footer h4{
     margin: 1rem 0;
-    
 }
-.footer_inner{
-    padding-top: 3rem;
-    padding-bottom: 4rem;
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-}
+
 .footer-logo-div{
     display: flex;
     justify-content: center;

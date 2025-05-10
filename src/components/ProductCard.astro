@@ -1,37 +1,33 @@
 ---
 import { Image } from 'astro:assets';
-import '../styles/product-card.css';
+import '../styles/productCard.css';
+import LikeButton from "./LikeButton.astro";
 
-interface Props {
-    id: number;
-    title: string;
-    price: number;
-    timeLeft: string;
-    imageUrl: string;
-}
-
-const {id, title, price, timeLeft, imageUrl} = Astro.props ;
+const { car } = Astro.props ;
 
 // Use a relative path pattern for glob
 const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,gif,webp}');
-const getImage = images[imageUrl];
+const getImage = images[car.imageUrl];
 ---
 
-<a href={"cars/" + id} class="product_card">
+<a href={"cars/" + car.id} class="product_card">
     {getImage ? (
-        <Image class="product_card_image" src={getImage()} alt={title} />
+            <div class="product_card_image_container">
+                <LikeButton isAbsolute={true} isLiked={false}/>
+                <Image class="product_card_image" src={getImage()} alt={car.title} />
+            </div>
+
+
     ) : (
         <div class="product_card_image placeholder">No image available</div>
     )}
-
+    <h4 class="product_card_title">{car.title}</h4>
     <div class="product_card_info">
-        <h4>{title}</h4>
 
-        <div class="product_card_info_inner">
-            <p>£{price}</p>
-            <p>{timeLeft}</p>
-        </div>
-
+        <p> {car.origin || "Unknown origin"}, {car.run || "Unknown run"}, {car.wheel || "Unknown wheel"}, {car.transmission || "Unknown transmission"}, {car.color || "Unknown color"}</p>
+        <p class="product_card_price">
+            price:
+            <span>€ {car.price}</span>
+        </p>
     </div>
-
 </a>
