@@ -2,7 +2,7 @@
 import "../styles/global.css";
 import "../styles/account.css";
 import { Image } from "astro:assets";
-import defaultAvatarIcon from "../images/icons/default-avatar-icon.jpg";
+
 import avatarIcon1 from "../images/icons/avatar_icon1.svg";
 import avatarIcon2 from "../images/icons/avatar_icon2.svg";
 import avatarIcon4 from "../images/icons/avatar_icon4.svg";
@@ -15,17 +15,20 @@ import ProductCard from "./ProductCard.astro";
 const {
     name,
     lastName,
-    balance,
     dateOfBirth,
     email,
     phoneNumber,
-    dateModified,
+    avatarSrc
 } = Astro.props;
+
+
+
+
 ---
 
 <div class="account-container">
     <div class="sub-header">
-        <h1>Hello, {name}</h1>
+        <h2 class="welcome-text">Hello, {name}</h2>
         <div class="nav-options">
             <button class="option-button clicked-option-button"
                 >Personal information</button
@@ -38,7 +41,7 @@ const {
         <div class="profile-sidebar">
             <div class="avatar-section">
                 <Image
-                    src={defaultAvatarIcon}
+                    src={avatarSrc}
                     alt="avatar"
                     class="default-avatar-icon"
                 />
@@ -86,10 +89,7 @@ const {
                         <span class="info-cell">{dateOfBirth}</span>
                     </div>
 
-                    <div class="personal-info">
-                        <h4>Date modified</h4>
-                        <span class="info-cell">{dateModified}</span>
-                    </div>
+                    
                 </div>
             </div>
             <div class="option-section">
@@ -142,6 +142,7 @@ const {
                             type="text"
                             placeholder="Enter Name"
                             name="first-name"
+                            value={name}
                         />
 
                         <input
@@ -149,43 +150,46 @@ const {
                             type="text"
                             placeholder="Enter Last name"
                             name="last-name"
+                            value={lastName}
                         />
                     </div>
                     <div class="form-item">
-                        <label class="item-label" for="email">Email</label>
-                        <input
+                        <label class="item-label">Email
+                            <input
                             class="form-input"
                             type="text"
                             placeholder="Enter Email"
-                            name="email"
+                            value={email}
                         />
+                        </label>
+                        
                     </div>
                     <div class="form-item">
-                        <label class="item-label" for="phone-number"
-                            >Phone Number</label
-                        >
-                        <input
+                        <label class="item-label" >Phone Number
+                            <input
                             class="form-input"
                             type="text"
-                            placeholder="Enter Email"
-                            name="phone-number"
+                            placeholder="Enter Email" 
+                            value={phoneNumber} 
                         />
+                        </label>
+                        
                     </div>
                     <div class="form-item">
-                        <label class="item-label" for="birth-date"
-                            >Date of Birth</label
-                        >
-                        <input
+                        <label class="item-label">Date of Birth
+                            <input
                             class="form-input"
                             type="text"
                             placeholder="Enter date of birth"
-                            name="birth-date"
+                            value={dateOfBirth}
                         />
+                        </label>
+                        
                     </div>
                 </div>
-                <div class="submit-button">
-                    <button class="submit-button">Save Changes</button>
-                </div>
+                
+                <button class="submit-button">Save Changes</button>
+                
             </div>
       
         </div>
@@ -245,16 +249,15 @@ const {
                 const inputElement = pop_up_input as HTMLInputElement;
                 input_values.push(inputElement.value);
             });
-            input_values.push(getCurrentDate());
+            
             const fields = [
                 "name",
                 "lastName",
                 "dateOfBirth",
                 "email",
                 "phoneNumber",
-                "dateModified",
+                
             ];
-            console.log(input_values);
             fields.forEach((key, i) => {
                 (accounts as any)[key] = input_values[i];
             });
@@ -279,8 +282,9 @@ const {
             // if (nameSpan) nameSpan.textContent = `Hello, ${accounts[0].name}`;
             // if (avatarLabel1) avatarLabel1.textContent = `${accounts[0].name} ${accounts[0].lastName}`;
             // if (avatarLabel2) avatarLabel2.textContent = accounts[0].email;
-            edit_menu?.classList.remove("edit-menu-active");
             pop_up?.classList.remove("active");
+           
+            
         });
 
         option_buttons.forEach((option_button, index) => {
@@ -298,18 +302,7 @@ const {
             });
         });
 
-        function getCurrentDate() {
-            const date = new Date();
-
-            let day = date.getDate();
-            let month = date.getMonth() + 1;
-            let year = date.getFullYear();
-
-            // This arrangement can be altered based on how we want the date's format to appear.
-            let currentDate = `${day}-${month}-${year}`;
-
-            return currentDate;
-        }
+        
 
         
     </script>

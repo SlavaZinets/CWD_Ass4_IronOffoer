@@ -9,7 +9,10 @@
     margin-bottom: 1rem;
 
 }
-
+.welcome-text{
+    font-size: 2.5rem;
+    padding: 1rem 0;
+}
 .balance-sign-out-div {
     display: flex;
     align-items: center;
@@ -20,6 +23,13 @@
     background-color: var(--button-color);
     border-radius: 1.5rem;
     color: white;
+    padding: 0.8rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.sign-out-button:hover{
+    background-color: var(--button-hover);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .account {
@@ -104,9 +114,14 @@
     gap: 0.4rem;
     padding: 0.4rem 0.7rem 0.3rem 0.7rem;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+
     
 }
+.edit-info-button:hover{
 
+    background-color: #E0E0E0;
+}
 
 
 .editTitleBtn {
@@ -115,7 +130,10 @@
 
 .personal-info-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    row-gap: 1.2rem;
 }
 
 .info-cell {
@@ -123,6 +141,7 @@
 }
 .edit-menu{
     display: none;
+   
 }
 .edit-menu-active{
     display: flex;
@@ -131,7 +150,7 @@
     
 }
 .form-heading {
-    padding: 2rem 0;
+    padding: 1.2rem 0;
 }
 
 .form-items {
@@ -175,7 +194,7 @@
 }
 
 .submit-button {
-    background-color: #4a90e2;
+    background-color: var(--button-color);
     color: white;
     padding: 10px 20px;
     border: none;
@@ -187,7 +206,7 @@
 }
 
 .submit-button:hover {
-    background-color: #3a78c2;
+    background-color: var(--button-hover);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -208,22 +227,6 @@
     
 }
 .avatarIcon-selected{
-    border: 4px solid #4a90e2;
+    border: 4px solid var(--button-color);
 }
 
-.select-avatar-button {
-    background-color: transparent;
-    color: #4a90e2;
-    padding: 8px 16px;
-    border: 2px solid #4a90e2;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.select-avatar-button:hover {
-    background-color: #4a90e2;
-    color: white;
-}

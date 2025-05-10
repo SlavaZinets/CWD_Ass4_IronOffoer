@@ -26,7 +26,16 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
     text-align: center;
+    
+   
+}
+
+.close-button-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: right;
+}
+.close-button{
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
 }
