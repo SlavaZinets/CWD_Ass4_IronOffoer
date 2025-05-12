@@ -4,43 +4,143 @@ import "../styles/contactUs.css";
 import { Image } from "astro:assets";
 import callIcon from "../images/icons/call_icon.svg";
 import mailIcon from "../images/icons/mail_ico.svg";
-import customerSupportIcon from "../images/icons/customerSupport-img.svg"
+import customerSupportIcon from "../images/icons/customerSupport-img.webp";
+
+import PopUpContainer from "./PopUpContainer.astro";
 ---
 
 <div class="contact-us-container">
     <div class="contact-us-sub-header">
-        <div class="sub-header-text">
-            <h3>Get in touch</h3>
-            <p>Want to get in touch? We'd love to hear from you. Here's how you can reach us.</p>
-        </div>
-        
-            <Image src={customerSupportIcon} alt="customer-support-ico" class="sub-header-photo"></Image>
-        
+        <h3 class="sub-header-title">Get in touch</h3>
+        <p class="sub-header-text">
+            Do you want to contact us? We would be delighted to hear from you.
+            Here is how to get in touch with us.
+        </p>
     </div>
     <div class="contact-box-wrapper">
         <div class="contact-box">
             <div class="contact-box-img">
                 <Image src={callIcon} alt="call_icon" />
             </div>
-            <h4 class="contact-box-title">Talk to Sales</h4>
-            <p>
-                Interested in HubSpot’s software? Just pick up the phone to chat
-                with a member of our sales team.
+            <h2 class="contact-box-title">Talk to Sales</h2>
+            <p class="contact-box-text">
+                Interested in our car auctions? Just give us a call and our team
+                will help you find the perfect ride or sell yours with ease.
             </p>
-            <span class="phone-number"> 0964151541 </span>
+            <span class="phone-number"> 0874151541 </span>
         </div>
         <div class="contact-box">
             <div class="contact-box-img">
                 <Image src={mailIcon} alt="mail_icon" />
             </div>
             <h4 class="contact-box-title">Contact Customer Support</h4>
-            <p>
-                Sometimes you need a little help from your friends. Or a HubSpot
-                support rep. Don’t worry… we’re here for you.
+            <p class="contact-box-text">
+                Sometimes you just need a little help getting into gear. Don’t
+                worry — our support team is here to steer you in the right
+                direction.
             </p>
-            <button class="contact-us-button">
-                Contact Support
-            </button>
+            <button class="contact-us-button"> Contact Support </button>
+        </div>
+    </div>
+    <div class="location-title">
+        <h2>Our location</h2>
+    </div>
+    <div class="map-container">
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4765.360906668703!2d-6.280593222683682!3d53.33107457228483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c1833b915c7%3A0x4f83acae16f5062e!2sGriffith%20College%20Dublin%20Main%20Campus!5e0!3m2!1sen!2sie!4v1747065748090!5m2!1sen!2sie"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="map-description">
+            <h3 class="map-description-title">
+                Griffith College Dublin Main Campus
+            </h3>
+            <p class="map-description-text">
+                South Circular Road<br />Dublin 8<br />D08 V04N<br />014150400
+            </p>
         </div>
     </div>
 </div>
+<PopUpContainer>
+    <div class="success-message">Your message has been sent successfully!</div>
+    <div class="contact-form-container">
+        <h2 class="contact-form-title">Contact Us</h2>
+        <form class="contact-form">
+            <label
+                >Name
+                <input type="text" id="name" placeholder="Your name" />
+            </label>
+
+            <label
+                >Email
+                <input class="email" placeholder="Your email" />
+            </label>
+            <div class="error-message">Please enter a valid email address.</div>
+
+            <label
+                >Message
+                <textarea
+                    class="message-block"
+                    placeholder="Write your message..."
+                    rows="5"></textarea>
+            </label>
+            <div class="error-message">Massage block is empty</div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</PopUpContainer>
+<script>
+    const contact_us_button = document.querySelector(".contact-us-button");
+    const pop_up = document.querySelector(".pop-up-container");
+    const contact_form = document.querySelector(
+        ".contact-form",
+    ) as HTMLFormElement;
+    const errors = document.querySelectorAll(".error-message");
+    const email = document.querySelector(".email") as HTMLInputElement;
+    const msgBlock = document.querySelector(
+        ".message-block",
+    ) as HTMLInputElement;
+    const successMessage = document.querySelector(
+        ".success-message",
+    ) as HTMLElement;
+
+    contact_us_button?.addEventListener("click", () => {
+        pop_up?.classList.add("active");
+    });
+    contact_form?.addEventListener("submit", (e) => {
+        const emailValue = email.value;
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        let valid = true;
+        e.preventDefault();
+        if (!emailRegex.test(emailValue)) {
+            (errors[0] as HTMLElement).style.display = "block";
+            email.focus();
+            valid = false;
+        } else {
+            (errors[0] as HTMLElement).style.display = "none";
+        }
+        if (msgBlock.value.trim() === "") {
+            (errors[1] as HTMLElement).style.display = "block";
+            valid = false;
+        } else {
+            (errors[1] as HTMLElement).style.display = "none";
+        }
+        if (valid) {
+            console.log("Entered Valid");
+            successMessage.style.display = "block";
+
+            contact_form.reset();
+            setTimeout(() => {
+                successMessage!.style.display = "none";
+            }, 5000);
+        }
+    });
+</script>
