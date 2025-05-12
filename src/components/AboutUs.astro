@@ -1,0 +1,101 @@
+---
+import "../styles/global.css";
+import "../styles/aboutUs.css";
+import { Image } from "astro:assets";
+import slide1 from "../images/slider/slide1.jpg";
+import slide2 from "../images/slider/slide2.jpg";
+import slide3 from "../images/slider/slide3.jpg";
+import aboutUsPhoto1 from "../images/aboutUsPhotos/photo1.jpg";
+import aboutUsPhoto2 from "../images/aboutUsPhotos/photo2.webp";
+import aboutUsPhoto3 from "../images/aboutUsPhotos/photo3.webp";
+---
+
+<div class="about-us-container">
+    <div class="slider-container">
+        <div class="slide">
+            <Image src={slide1} alt="slide 1" class="slide-img" />
+            <div class="slider-text">Our Story</div>
+        </div>
+        <div class="slide">
+            <Image src={slide2} alt="slide 2" class="slide-img" />
+            <div class="slider-text">Our Story</div>
+        </div>
+        <div class="slide">
+            <Image src={slide3} alt="slide 3" class="slide-img" />
+            <div class="slider-text">Our Story</div>
+        </div>
+    </div>
+    <div class="about-us-section">
+        <h2 class="about-us-title">Welcome to Iron Offer</h2>
+
+        <div class="about-us-info">
+            <div class="about-us-img">
+                <Image src={aboutUsPhoto1} alt="aboutUsPhoto" />
+            </div>
+            <div class="about-us-text">
+                <p>
+                    Our journey began with a
+                    passion for automobiles and the thrill of the auction floor.
+                    Founded in 1901, we started as a small local event bringing
+                    together car enthusiasts, sellers, and buyers under one
+                    roof. Over time, we’ve grown into a trusted name in the car
+                    auction world—known for integrity, excitement, and great
+                    deals.
+                </p>
+            </div>
+        </div>
+        <div class="about-us-info">
+            
+            <div class="about-us-text">
+                <p>
+                    At Iron Offer, we believe that buying and selling vehicles
+                    should be transparent, fair, and even fun. Whether you're a
+                    dealer, collector, or first-time bidder, our goal is to make
+                    your auction experience smooth, exciting, and rewarding.
+                    From rare finds to everyday rides, we offer a diverse lineup
+                    of cars for every taste and budget.<br>
+
+                    
+                </p>
+            </div>
+            <div class="about-us-img">
+                <Image src={aboutUsPhoto2} alt="aboutUsPhoto" />
+            </div>
+        </div>
+        <div class="about-us-info">
+            <div class="about-us-img">
+                <Image src={aboutUsPhoto3} alt="aboutUsPhoto" />
+            </div>
+            <div class="about-us-text">
+                <p>
+                    Our team is made up of experienced professionals who know
+                    the industry inside and out. We're committed to helping you
+                    make informed decisions and ensuring every transaction is
+                    handled with care. It's not just about moving metal—it's
+                    about connecting people to the vehicles they need and love.
+
+
+                </p>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach((slide) => {
+            slide.classList.remove("active");
+        });
+
+        slideIndex++;
+        if (slideIndex > slides.length) slideIndex = 1;
+
+        slides[slideIndex - 1].classList.add("active");
+
+        setTimeout(showSlides, 3000); // Adjust for longer visibility
+    }
+</script>
