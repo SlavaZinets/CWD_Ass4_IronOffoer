@@ -20,16 +20,16 @@
 }
 
 .sign-out-button {
-    background-color: var(--button-color);
+    
     border-radius: 1.5rem;
-    color: white;
-    padding: 0.8rem;
+    color: var(--button-color);
+    padding: 0;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
 .sign-out-button:hover{
-    background-color: var(--button-hover);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    color: var(--button-hover);
+    
 }
 
 .account {
@@ -55,6 +55,7 @@
     height: 10rem;
     object-fit: cover;
     border-radius: 50%;
+    
 }
 
 .avatar-label-name {
@@ -77,7 +78,7 @@
 
 .option-button {
     padding: 1rem 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--text-muted-color);
 }
 
