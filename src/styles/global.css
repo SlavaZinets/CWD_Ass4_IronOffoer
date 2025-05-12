@@ -44,6 +44,11 @@ body.blur::after {
     transition: all 0.3s ease;
 }
 
+
+main {
+    width: 100%;
+}
+
 ul, ol {
     list-style: none;
 }
@@ -79,6 +84,20 @@ a {
 input{
     outline: none;
     border: none;
+    padding-left: 0.5rem;
+    color: var(--text-color-subactive);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+
+}
+
+input:focus{
+    color: var(--text-color);
+}
+
+fieldset{
+    border: none;
 }
 
 .container {
@@ -89,5 +108,10 @@ input{
 }
 
 .content-wrapper{
-    display: flex   ;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block: 3rem;
 }
+
