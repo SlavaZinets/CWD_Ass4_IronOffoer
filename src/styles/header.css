@@ -11,6 +11,7 @@
     align-items: center;
     padding-block: 2rem;
     gap: 4rem;
+    
 }
 .search-container{
     display: flex;
@@ -70,7 +71,7 @@
     display: flex;
     gap: 1.5rem;
 }
-
-
-
+.nav_list li a {
+    white-space: nowrap;
+}
 

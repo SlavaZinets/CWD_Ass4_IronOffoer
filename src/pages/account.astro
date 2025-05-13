@@ -1,8 +1,15 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
+import UserAccount from "../components/Account.astro";
+import { accounts } from "../data/accounts.js";
 ---
 
-<DefaultLayout title="Account">
-    <h1>Account</h1>
+<DefaultLayout>
+    {
+        
+        <UserAccount {...Object.values(accounts)[0]} />
+        
+    }
 </DefaultLayout>
+
 

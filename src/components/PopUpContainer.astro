@@ -1,0 +1,28 @@
+---
+import '../styles/global.css';
+import '../styles/popUpContainer.css';
+import Image from 'astro/components/Image.astro';
+import closeIcon from '../images/icons/close-icon.svg'
+---
+<div class="pop-up-container">
+    <div class="pop-up">
+        <div class="close-button-container">
+            <Image src={closeIcon} alt="close-button" class = "close-button">
+        </div>
+        <slot/>
+    </div>
+</div>  
+<script>
+ const close_button = document.querySelector(".close-button");
+ const pop_up_container = document.querySelector(".pop-up-container");
+
+ close_button?.addEventListener("click", ()=>{
+    pop_up_container?.classList.remove("active")
+ })
+ pop_up_container?.addEventListener("click", (e)=>{
+    if(e.target == pop_up_container){
+        pop_up_container?.classList.remove("active");
+    }
+    
+ })
+</script>
