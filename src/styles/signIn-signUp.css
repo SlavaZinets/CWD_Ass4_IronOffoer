@@ -1,0 +1,87 @@
+
+.sign-in-section{
+    display: flex;
+    
+    margin: 2rem 0;
+    box-sizing: border-box;
+    
+}
+.sign-in-container{
+    display: flex;
+    flex-direction: column;
+    
+    
+    gap: 4rem;
+    padding: 0 8rem;
+}
+.sign-in-title{
+    font-size: 4rem;
+}
+.login-side-image{
+    width:50%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sign-in-form {
+  display: flex;
+  width: 30rem ;
+  flex-direction: column;
+  gap: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.sign-in-form label {
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+.sign-in-form input {
+  padding: 1rem 0.8rem;
+    
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+.sign-in-form input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+
+
+.forgot-password-button:hover {
+  
+  text-decoration: underline;
+}
+
+.sign-in-button {
+  padding: 12px;
+  background-color: var(--button-color);
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  max-width: 10rem;
+}
+.error-message {
+  color: #d9534f;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-top: -10px;
+  
+  display: none;
+}
+.sign-in-button:hover {
+  background-color: var(--button-hover);
+}
+.sign-up{
+    display: inline;
+    color: var(--button-color);
+    padding: 0;
+}
