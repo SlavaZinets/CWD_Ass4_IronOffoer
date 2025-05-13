@@ -11,7 +11,7 @@ import PopUpContainer from "./PopUpContainer.astro";
 import "../styles/popUpContainer.css";
 import "../styles/catalog.css";
 import { cars } from "../data/cars.js";
-import ProductCard from "./ProductCard.astro";
+import ProductCard from "./ProductCard.jsx";
 const {
     name,
     lastName,
@@ -97,7 +97,7 @@ const {
     {
 
         cars.map((car) => (
-            <ProductCard car={car} />
+            <ProductCard car={car} client:load />
         ))
 
     }

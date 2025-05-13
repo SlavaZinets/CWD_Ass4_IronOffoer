@@ -11,7 +11,7 @@ import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
 import transmission from "../images/icons/carInfoIcons/transmission.svg"
 import color from "../images/icons/carInfoIcons/color.svg"
 import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
-import LikeButton from "./LikeButton.astro";
+import LikeButton from "./LikeButton.jsx";
 
 
 
@@ -29,7 +29,7 @@ const handleClick = () => {
     <div class="lot">
         {getImage ? (
                 <div class="img-container">
-                    <LikeButton isLiked={false}/>
+                    <LikeButton isLiked={false} client:load/>
                     <Image class="card-img" src={getImage()} alt={car.title}/>
                 </div>
         ) : (
