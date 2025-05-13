@@ -1,4 +1,4 @@
-import defaultAvatarIcon from "../images/icons/default-avatar-icon.jpg";
+import defaultAvatarIcon from "../images/icons/accountIcon.svg";
 export let accounts =[
     {
         name: "Maksym",

@@ -36,6 +36,9 @@ body {
 
 main {
     width: 100%;
+    height: max-content;
+    min-height: 100dvh;
+    margin-bottom: 5rem;
 }
 
 ul, ol {
@@ -60,6 +63,8 @@ button {
     line-height: 1.5;
     cursor: pointer;
 }
+
+
 
 a {
     text-decoration: none;
@@ -142,4 +147,13 @@ input[type="checkbox"]:checked::before {
     display: grid;
     grid-template-rows: auto 1fr auto; /* header, main (grow), footer */
     height: 100%;
+}
+
+.red_button {
+    background-color: var(--button-color);
+    transition: background-color 0.3s ease-in-out;
+}
+
+.red_button:hover{
+    background-color: var(--button-hover);
 }

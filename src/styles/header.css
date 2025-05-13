@@ -3,6 +3,9 @@
     color: var(--text-color-light);
     position: relative;
     z-index: 11;
+
+    margin-bottom: 3rem;
+
 }
 
 .header_inner{
