@@ -4,10 +4,10 @@ import likeIcon from '../images/icons/like.svg';
 
 import '../styles/likeButton.css';
 
-const { isAbsolute, isLiked } = Astro.props;
+const { isLiked } = Astro.props;
 ---
 
-<button class={"like_button" + (isAbsolute? " absolute_position" : "") + (isLiked ? " liked" : "")}>
+<button class={"like_button absolute_position" + (isLiked ? " liked" : "")}>
     <Image class="like_icon" src={likeIcon} alt="like"/>
 </button>
 

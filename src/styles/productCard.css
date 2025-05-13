@@ -1,5 +1,4 @@
 .product_card {
-    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -36,12 +35,13 @@
     font-size: 0.75rem;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
     gap: 0.75rem;
+    padding: 0 0.25rem;
 }
 
 .product_card_title {
     margin: 0.5rem 0;
+    padding: 0 0.25rem;
 }
 
 .product_card_price {
@@ -49,10 +49,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1rem;
     color: var(--text-color);
+    font-size: 1rem;
 }
 
 .product_card_price span {
     color: var(--price-color);
+    font-weight: 600;
 }
