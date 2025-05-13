@@ -8,7 +8,7 @@
     --text-color-subactive: #4d4d4d;
     --text-color-light: #fdfffcff;
     --price-color: #C41111ff;
-
+    --checkbox-color: #4d4d4d;
 
 
 
@@ -98,6 +98,40 @@ input:focus{
 
 fieldset{
     border: none;
+}
+
+legend {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--checkbox-color);
+    border-radius: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    background-color: var(--checkbox-color);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.125rem;
+    transition: all 0.1s ease-in-out;
+    transform: scale(0);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
 }
 
 .container {
