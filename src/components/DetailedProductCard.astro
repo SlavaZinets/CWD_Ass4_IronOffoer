@@ -11,8 +11,8 @@ import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
 import transmission from "../images/icons/carInfoIcons/transmission.svg"
 import color from "../images/icons/carInfoIcons/color.svg"
 import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
-import LikeButton from "./LikeButton.astro";
-
+import LikeButton from "./LikeButton.jsx";
+import PopUpContainer from "./PopUpContainer.jsx";
 
 
 const {car} = Astro.props;
@@ -29,7 +29,7 @@ const handleClick = () => {
     <div class="lot">
         {getImage ? (
                 <div class="img-container">
-                    <LikeButton isAbsolute={true} isLiked={false}/>
+                    <LikeButton isLiked={false} client:load/>
                     <Image class="card-img" src={getImage()} alt={car.title}/>
                 </div>
         ) : (
@@ -66,9 +66,9 @@ const handleClick = () => {
                     </ul>
                 </div>
             </div>
-            <div class="auction-info">
-                    <button class="buy">Buy now</button>
-            </div>
+            <PopUpContainer buttonStyle="buy" buttonText="Buy" client:load >
+                <p>xyi</p>
+            </PopUpContainer>
         </div>
     </div>
 </div>

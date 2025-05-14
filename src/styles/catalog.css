@@ -1,6 +1,8 @@
 .catalog {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    gap: 1rem;
+    gap: 1.75rem 1rem;
+    width: 100%;
+
 }
 

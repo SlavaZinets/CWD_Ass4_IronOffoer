@@ -1,5 +1,8 @@
 ---
-import SignUpPage from "../components/SignUp.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import SignUp from "../components/SignUp.jsx";
 ---
 
-<SignUpPage/>
+<DefaultLayout>
+    <SignUp client:load />
+</DefaultLayout>

@@ -5,8 +5,6 @@ import '../styles/header.css';
 import searchIcon from '../images/icons/searchIcon.svg';
 import { Image } from 'astro:assets';
 
-//Todo make focus for search bar js
-
 ---
 
 <header class="header">
@@ -17,9 +15,10 @@ import { Image } from 'astro:assets';
            <ul class="nav_list">
                
                <li><a href="/">Catalog</a></li>
-               <li><a href="/account">Account</a></li>
+               <li><a href={"/account"}>Account</a></li>
                <li><a href="/contactUs">Contact Us</a></li>
                <li><a href="/aboutUs">About us</a></li>
+               <li><a href="/aboutDevs">About devs</a></li>
            </ul>
        </nav>
    </div>

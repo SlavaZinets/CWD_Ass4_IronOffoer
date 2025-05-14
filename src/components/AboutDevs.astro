@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+import "../styles/aboutDevs.css"
+import { Image } from "astro:assets";
+
+import groupPhoto from "../images/3_devs.webp";
+import memberPhoto from "../images/member.jpg";
+---
+
+<div class="about-devs">
+    <div class="intro">
+        <h1>The Team Behind The Code</h1>
+        <p>A passionate trio of front-end developers crafting clean, responsive, and user-friendly web experiences.</p>
+        <Image class="devs" src={groupPhoto} alt="Group Photo" />
+    </div>
+    <h2>Members</h2>
+    <div class="members">
+        
+        <div class="member-img">
+            <Image class="member" src={memberPhoto} alt="Member Photo" />
+        </div>
+        <div class="member-info">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+            </p>
+        </div>
+    </div>
+    <div class="members-reverse">
+        <div class="member-info">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+            </p>
+        </div>
+        <div class="member-img">
+            <Image class="member" src={memberPhoto} alt="Member Photo" />
+        </div>
+    </div>
+    <div class="members">
+        <div class="member-img">
+            <Image class="member" src={memberPhoto} alt="Member Photo" />
+        </div>
+        <div class="member-info">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+            </p>
+        </div>
+    </div>
+</div>

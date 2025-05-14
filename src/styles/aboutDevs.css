@@ -1,0 +1,89 @@
+.intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 2.5rem;
+    padding: 1rem;
+}
+
+.devs{
+    width: 40%;
+    height: auto;
+    padding: 1rem;
+}
+
+@media (max-width: 560px) {
+
+    .devs{
+        width: 100%;
+    }
+}
+
+h2{
+    text-align: center;
+    padding: 2rem;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.members{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+
+}
+
+.members-reverse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.member{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .4);
+}
+
+.member-img{
+    width: 30rem;
+    height: auto;
+
+}
+.member-info p{
+    width: 40rem; /* or use max-width */
+    white-space: normal; /* Reset any potential "nowrap" behavior */
+    overflow-wrap: break-word;   
+}
+
+@media (max-width: 560px) {
+    .members {
+        flex-direction: column;
+    }
+
+    .members-reverse{
+        flex-direction: column-reverse;
+    }
+
+    .member-img {
+        width: 100%;
+    }
+
+    .member-info p {
+        width: 100%;
+    }
+}

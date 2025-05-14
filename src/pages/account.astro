@@ -1,15 +1,17 @@
 ---
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import UserAccount from "../components/Account.astro";
-import { accounts } from "../data/accounts.js";
+import UserAccount from "../components/Account.jsx";
 ---
 
 <DefaultLayout>
-    {
-        
-        <UserAccount {...Object.values(accounts)[0]} />
-        
-    }
+    <UserAccount
+        client:load
+        name="Maksym"
+        lastName="Chechotkin"
+        dateOfBirth="25/05/2007"
+        email="maxchechotkin@gmail.com"
+        phoneNumber="0964151541"
+    />
 </DefaultLayout>
 
 
