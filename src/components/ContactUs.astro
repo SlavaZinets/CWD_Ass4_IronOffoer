@@ -9,60 +9,64 @@ import customerSupportIcon from "../images/icons/customerSupport-img.webp";
 import PopUpContainer from "./PopUpContainer.astro";
 ---
 
-<div class="contact-us-container">
-    <div class="contact-us-sub-header">
-        <h3 class="sub-header-title">Get in touch</h3>
-        <p class="sub-header-text">
-            Do you want to contact us? We would be delighted to hear from you.
-            Here is how to get in touch with us.
-        </p>
-    </div>
-    <div class="contact-box-wrapper">
-        <div class="contact-box">
-            <div class="contact-box-img">
-                <Image src={callIcon} alt="call_icon" />
+<div class="container">
+    <div class="contact-us-container">
+        <div class="contact-us-sub-header">
+            <h3 class="sub-header-title">Get in touch</h3>
+            <p class="sub-header-text">
+                Do you want to contact us? We would be delighted to hear from
+                you. Here is how to get in touch with us.
+            </p>
+        </div>
+        <div class="contact-box-wrapper">
+            <div class="contact-box">
+                <div class="contact-box-img">
+                    <Image src={callIcon} alt="call_icon" />
+                </div>
+                <h2 class="contact-box-title">Talk to Sales</h2>
+                <p class="contact-box-text">
+                    Interested in our car auctions? Just give us a call and our
+                    team will help you find the perfect ride or sell yours with
+                    ease.
+                </p>
+                <span class="phone-number"> 0874151541 </span>
             </div>
-            <h2 class="contact-box-title">Talk to Sales</h2>
-            <p class="contact-box-text">
-                Interested in our car auctions? Just give us a call and our team
-                will help you find the perfect ride or sell yours with ease.
-            </p>
-            <span class="phone-number"> 0874151541 </span>
-        </div>
-        <div class="contact-box">
-            <div class="contact-box-img">
-                <Image src={mailIcon} alt="mail_icon" />
+            <div class="contact-box">
+                <div class="contact-box-img">
+                    <Image src={mailIcon} alt="mail_icon" />
+                </div>
+                <h4 class="contact-box-title">Contact Customer Support</h4>
+                <p class="contact-box-text">
+                    Sometimes you just need a little help getting into gear.
+                    Don’t worry — our support team is here to steer you in the
+                    right direction.
+                </p>
+                <button class="contact-us-button"> Contact Support </button>
             </div>
-            <h4 class="contact-box-title">Contact Customer Support</h4>
-            <p class="contact-box-text">
-                Sometimes you just need a little help getting into gear. Don’t
-                worry — our support team is here to steer you in the right
-                direction.
-            </p>
-            <button class="contact-us-button"> Contact Support </button>
         </div>
-    </div>
-    <div class="location-title">
-        <h2>Our location</h2>
-    </div>
-    <div class="map-container">
-        <div class="map">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4765.360906668703!2d-6.280593222683682!3d53.33107457228483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c1833b915c7%3A0x4f83acae16f5062e!2sGriffith%20College%20Dublin%20Main%20Campus!5e0!3m2!1sen!2sie!4v1747065748090!5m2!1sen!2sie"
-                width="600"
-                height="450"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="location-title">
+            <h2>Our location</h2>
         </div>
-        <div class="map-description">
-            <h3 class="map-description-title">
-                Griffith College Dublin Main Campus
-            </h3>
-            <p class="map-description-text">
-                South Circular Road<br />Dublin 8<br />D08 V04N<br />014150400
-            </p>
+        <div class="map-container">
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4765.360906668703!2d-6.280593222683682!3d53.33107457228483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48670c1833b915c7%3A0x4f83acae16f5062e!2sGriffith%20College%20Dublin%20Main%20Campus!5e0!3m2!1sen!2sie!4v1747065748090!5m2!1sen!2sie"
+                    width="600"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="map-description">
+                <h3 class="map-description-title">
+                    Griffith College Dublin Main Campus
+                </h3>
+                <p class="map-description-text">
+                    South Circular Road<br />Dublin 8<br />D08 V04N<br
+                    />014150400
+                </p>
+            </div>
         </div>
     </div>
 </div>
