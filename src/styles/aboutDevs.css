@@ -60,10 +60,16 @@ h2{
 }
 
 .member-img{
-    width: 30rem;
+    width: 20rem;
     height: auto;
-
 }
+
+.member-img figcaption{
+    text-align: center;
+    font-size: .75rem;
+    color: var(--text-color-subactive);
+}
+
 .member-info p{
     width: 40rem; /* or use max-width */
     white-space: normal; /* Reset any potential "nowrap" behavior */
@@ -80,7 +86,8 @@ h2{
     }
 
     .member-img {
-        width: 100%;
+        width: 15rem;
+        height: auto;
     }
 
     .member-info p {

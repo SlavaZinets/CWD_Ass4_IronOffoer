@@ -3,8 +3,10 @@ import "../styles/global.css";
 import "../styles/aboutDevs.css"
 import { Image } from "astro:assets";
 
-import groupPhoto from "../images/3_devs.webp";
-import memberPhoto from "../images/member.jpg";
+import groupPhoto from "../images/group-photo.jpg";
+import Slava from "../images/slava.jpg";
+import Max from "../images/max.jpg"
+import Artem from "../Images/artem.jpg"
 ---
 
 <div class="about-devs">
@@ -17,31 +19,32 @@ import memberPhoto from "../images/member.jpg";
     <div class="members">
         
         <div class="member-img">
-            <Image class="member" src={memberPhoto} alt="Member Photo" />
+            <Image class="member" src={Slava} alt="Member Photo" />
+            <figcaption><p>Fixed half of the website</p> (14.05 23:45)</figcaption>
         </div>
         <div class="member-info">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+                Hi! My name is Viacheslav Zinets, but everybody can call me Slava. I am from Vinnytsia, a small town in the central part of Ukraine. My main hobby is martial arts. I have been doing them since I was 6, and for the last 5 years I have been doing karate particularly. I achieved some level of mastery there. Therefore, I was judging the national championship of Ukraine this spring (the photo below is from that tournament). I chose CS because it is a rapidly growing profession as well as highly paid. I expect that in 4 years, after my graduation, I will be able to easily find a job related to AI development.
             </p>
         </div>
     </div>
     <div class="members-reverse">
         <div class="member-info">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+                My name is Artem Shnyrov, I am 19 years old and I am from Kyiv, Ukraine. I love sprots, I've played badminton for almost 8 years and always enjoyed football. I also play chess in my free time. Last year I was studying Information Technology in NHL Stenden University in Netherlands. Even though, i didn't find the curriclum suitable for me, I really liked studying Web Development and Object-Oriented Programming. Therefore, I chose Computing Science in Griffith College.
             </p>
         </div>
         <div class="member-img">
-            <Image class="member" src={memberPhoto} alt="Member Photo" />
+            <Image class="member" src={Artem} alt="Member Photo" />
         </div>
     </div>
     <div class="members">
         <div class="member-img">
-            <Image class="member" src={memberPhoto} alt="Member Photo" />
+            <Image class="member" src={Max} alt="Member Photo" />
         </div>
         <div class="member-info">
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sit corrupti iure laboriosam maiores voluptates quidem optio. Doloremque culpa reiciendis voluptates ipsam illum animi est, in ut quo, qui consequatur.
+                Hey ya everybody, My name is Maksym I was born 17 year ago, I am from Ukraine and I spent my childhood years in a tiny city called Vinnytsia. Talking about my hobbies, when I have lots of leisure time I prefer to do programming, because I am crazy about solving as difficult, even the kind that makes your head feel like it's going to explode. I also love to play the guitar to my kith and kin and just talk with people. Why I pick this Computer Science course? It is because of my passion and strong desire to develop something new, which can be useful for people. I believe, that in the future, after graduating from college or even before that moment, I can find suitable job, where I can do what I like to do, and receive good finances. I am opened to communication with everybody and if you're in trouble as well as you need some sort of help, I always ready to assist you, just text me smile
             </p>
         </div>
     </div>
