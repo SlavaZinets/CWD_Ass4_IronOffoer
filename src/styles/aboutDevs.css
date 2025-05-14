@@ -15,6 +15,13 @@ h1{
     padding: 1rem;
 }
 
+@media (max-width: 560px) {
+
+    .devs{
+        width: 100%;
+    }
+}
+
 h2{
     text-align: center;
     padding: 2rem;
@@ -34,6 +41,17 @@ h2{
 
 }
 
+.members-reverse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .member{
     width: 100%;
     height: auto;
@@ -50,4 +68,22 @@ h2{
     width: 40rem; /* or use max-width */
     white-space: normal; /* Reset any potential "nowrap" behavior */
     overflow-wrap: break-word;   
+}
+
+@media (max-width: 560px) {
+    .members {
+        flex-direction: column;
+    }
+
+    .members-reverse{
+        flex-direction: column-reverse;
+    }
+
+    .member-img {
+        width: 100%;
+    }
+
+    .member-info p {
+        width: 100%;
+    }
 }
