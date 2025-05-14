@@ -6,3 +6,12 @@
 
 }
 
+@media (max-width: 720px) {
+    .catalog {
+        display: flex;
+        flex-direction: column;
+        gap: 1.75rem 0;
+        align-items: center;
+    }
+}
+

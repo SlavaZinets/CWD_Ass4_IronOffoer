@@ -161,10 +161,17 @@
   margin-top: 20px;
   font-size: 15px;
 }
-@media only screen and (max-width: 1024px){
+@media  screen and (max-width: 1024px){
+.location-title {
+   display: none;
+}
+    .map-container{
+        display: none;
+
+    }
 
 }
-@media only screen and (max-width: 700px){
+@media screen and (max-width: 700px){
     .contact-box-wrapper{
         display: flex;
         flex-direction: column;

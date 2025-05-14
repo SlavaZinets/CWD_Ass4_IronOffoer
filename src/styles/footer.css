@@ -15,7 +15,8 @@
 .social-media-li{
     display: flex;
     gap: 0.5rem;
-    
+    width: fit-content;
+
 }
 .social-media-li img{
     width: 8%;
@@ -30,6 +31,7 @@
 
 .footer h4{
     margin: 1rem 0;
+    width: fit-content;
 }
 
 .footer-logo-div{
@@ -38,7 +40,9 @@
     align-items: center;
 }
 
-@media screen and (max-width: 813px){
+
+
+@media screen and (max-width: 900px){
     
     .footer_inner{
         display: flex;
@@ -46,10 +50,26 @@
         justify-content: center;
         align-items: center;
     }
+
+    .footer-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
     .footer-list-items{
         display: none;
     }
     .active{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-media-li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
     }
 }

@@ -48,4 +48,11 @@
 }
 
 
+@media screen and (max-width: 768px) {
+    .filter-bar {
+        border-right: none;
+        padding-right: 0;
+    }
+}
+
 

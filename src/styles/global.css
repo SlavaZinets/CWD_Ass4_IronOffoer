@@ -168,3 +168,10 @@ input[type="checkbox"]:checked::before {
 .red_button:hover{
     background-color: var(--button-hover);
 }
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}

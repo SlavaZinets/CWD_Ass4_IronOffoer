@@ -8,7 +8,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "3 Speed Automatic",
         color: "White",
-        imageUrl: "../images/corvette_c3.jpg",
+        imageUrl: "corvette_c3.jpg",
         description: "Turn heads and relive the golden era of American automotive excellence with this stunning 1968 Chevrolet Corvette. A true icon of its time, this C3 generation ‘Vette is more than just a car—it’s a rolling piece of history. With only 35,000 km on the odometer, this classic has been meticulously cared for and remains in exceptional condition inside and out. /n Under the hood, it’s equipped with a reliable 3-speed automatic transmission, offering smooth, effortless cruising—perfect for weekend drives or adding to a collector’s showroom. The power delivery remains confident and responsive, staying true to the Corvette’s performance roots. /n This model comes finished in a clean, timeless white exterior, which perfectly highlights the Corvette’s sculpted body lines, aggressive front end, and signature long hood. The curves and stance are unmistakably Corvette, with a bold presence that still commands attention over 50 years later. /n Whether you’re a seasoned collector, a muscle car enthusiast, or simply looking to own a slice of American automotive history, this 1968 Corvette is a rare find in such well-preserved condition. Don't miss your chance to own a classic that continues to define the spirit of performance and style."
     },
     {
@@ -20,7 +20,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Manual",
         color: "Red",
-        imageUrl: "../images/mitsubishi_3000GT.jpeg",
+        imageUrl: "mitsubishi_3000GT.jpeg",
         description: "Up for sale is a well-preserved example of early '90s Japanese engineering: the 1991 Mitsubishi 3000GT, finished in a striking red exterior and paired with an engaging 5-speed manual transmission. With only 51,000 km on the clock, this vehicle is a rare gem for enthusiasts and collectors alike. /n The 3000GT made waves when it debuted, boasting advanced technology and sharp styling that set it apart from its rivals. This model captures that original spirit perfectly—sleek, aggressive lines and a low-slung stance give it a commanding road presence that still turns heads today. /n Behind the wheel, the 5-speed manual delivers a raw, driver-focused experience, bringing out the best of the car’s performance capabilities. Whether carving through back roads or cruising with confidence, the 3000GT remains a joy to drive, with tight handling and a responsive throttle. /n Low-mileage, manual-transmission 3000GTs are becoming increasingly hard to find, especially in such clean and original condition. If you’re looking to add a true JDM icon to your garage—one that represents the bold ambition of '90s sports car design—this is your opportunity."
     },
     {
@@ -32,7 +32,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Manual",
         color: "Vibrant Orange",
-        imageUrl: "../images/lamborghini_miura.jpeg",
+        imageUrl: "lamborghini_miura.jpeg",
         description: "Offered for sale is one of the most legendary automobiles ever built: a 1971 Lamborghini Miura, finished in its iconic vibrant orange (Arancio Miura). With 60,000 km on the odometer and equipped with a thrilling 5-speed manual transmission, this Miura represents the pinnacle of 1970s Italian performance and style. /n Often regarded as the world’s first true supercar, the Miura redefined automotive design with its low, mid-engine layout and dramatic, flowing body lines. This particular example showcases the timeless Bertone styling in a head-turning orange that pays homage to Lamborghini's bold spirit and motorsport heritage. /n Behind the wheel, the naturally aspirated V12 paired with the crisp manual gearbox delivers an exhilarating drive. The balance and character of this machine make every journey feel like a moment from racing history. With 60,000 km, this Miura remains in excellent condition—well-maintained, and preserved with the respect a car of this caliber demands. /n For collectors and connoisseurs, the Lamborghini Miura is more than a car—it’s an icon. This 1971 model offers a rare opportunity to own a piece of automotive legend, both visually stunning and mechanically uncompromising."
     },
     {
@@ -44,7 +44,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "4 Speed Automatic",
         color: "White Solid",
-        imageUrl: "../images/ford_bronco.jpg",
+        imageUrl: "ford_bronco.jpg",
         description: "Now available is a well-kept example of classic American ruggedness: a 1988 Ford Bronco, finished in a clean and solid white exterior. With just 47,000 km, this full-size 4x4 SUV is in remarkable condition for its age and stands as a symbol of the go-anywhere spirit that made the Bronco a legend. /n This model is equipped with a dependable 4-speed automatic transmission, making it easy and comfortable to drive both on and off the road. Whether you’re navigating city streets or heading off the beaten path, the Bronco delivers a confident and capable ride. /n The boxy design, removable rear hardtop, and high ground clearance embody the classic Bronco look—durable, functional, and unmistakably cool. Inside, it offers plenty of space for passengers and gear, making it ideal for weekend getaways, beach days, or simply standing out in daily traffic. /n Well-maintained and increasingly hard to find in this condition, this 1988 Ford Bronco is a fantastic opportunity for collectors or anyone looking to own a piece of 4x4 history."
     },
     {
@@ -56,7 +56,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Manual",
         color: "Red",
-        imageUrl: "../images/honda_crx.jpg",
+        imageUrl: "honda_crx.jpg",
         description: "Available now is a beautifully preserved 1990 Honda CR-X, finished in a vibrant red that perfectly complements its iconic, sporty silhouette. With only 43,000 km on the odometer and a crisp 5-speed manual transmission, this CR-X is a rare find and a standout example of Honda’s golden era of engineering. /n Renowned for its lightweight design, nimble handling, and excellent fuel efficiency, the CR-X has earned its place as a cult classic among driving enthusiasts. This model retains the simplicity and charm that made it legendary—responsive steering, a naturally aspirated engine, and the pure engagement of a manual gearbox. /n The exterior remains clean and true to its original form, while the interior reflects the well-cared-for condition of a low-mileage vehicle. Whether you're looking to relive the golden days of '90s JDM performance or add a reliable, fun-to-drive classic to your collection, this CR-X delivers on all fronts. /n Clean, manual CR-Xs with this kind of mileage are becoming increasingly hard to come by. Don’t miss the chance to own a slice of Honda history that’s as fun to drive as it is collectible."
     },
     {
@@ -68,7 +68,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "4 Speed automatic",
         color: "Silver",
-        imageUrl: "../images/mercedes.jpg",
+        imageUrl: "mercedes.jpg",
         description: "Presenting a truly distinguished classic: the 1970 Mercedes-Benz W113, finished in an elegant silver that perfectly complements its refined styling. Known affectionately as the “Pagoda” for its subtly concave roofline, this SL model is a celebrated icon of Mercedes-Benz design and craftsmanship. With just 68,000 km and a smooth 4-speed automatic transmission, this example is as enjoyable to drive as it is to admire. /n Understated yet unmistakably sophisticated, the W113 blends mid-century luxury with precision German engineering. Its inline-six engine delivers quiet, confident power, while the automatic transmission makes for a graceful and relaxed driving experience—ideal for long weekend drives or prestigious events. /n The silver exterior highlights the car’s clean lines and chrome accents, while the minimalist interior reflects the understated luxury Mercedes was known for in this era. Every detail—from the classic steering wheel to the slim instrument cluster—exudes a sense of timeless style. /n Well-maintained and increasingly sought after by collectors, this W113 is more than just a vintage convertible—it’s a piece of automotive history. If you’re looking for a classic that offers both sophistication and reliability, this 1970 Pagoda is an outstanding choice."
     },
     {
@@ -80,7 +80,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "3 Speed Automatic",
         color: "White",
-        imageUrl: "../images/volkswagen_t2.jpg",
+        imageUrl: "volkswagen_t2.jpg",
         description: "Offered for sale is a delightful example of the iconic 1974 Volkswagen Type 2, finished in a clean white exterior that perfectly suits its laid-back, retro vibe. With 85,000 km and a rare 3-speed automatic transmission, this vintage VW bus is a standout for collectors and free spirits alike. /n Known around the world as a symbol of freedom and counterculture, the Type 2 remains one of the most beloved and recognizable vehicles ever made. Whether you're drawn to its vintage styling, practical design, or the lifestyle it represents, this model delivers all the charm and character you could ask for. /n The 3-speed automatic transmission makes driving this classic even more accessible, allowing for a relaxed and easygoing experience—whether you're cruising to the beach, camping for the weekend, or simply turning heads around town. /n This 1974 example remains in solid condition, showing the kind of gentle use and care that makes it a perfect candidate for weekend adventures or full restoration. With classic white paint, signature round headlights, and the unmistakable VW silhouette, this Type 2 captures the spirit of an era. /n A timeless favorite with a loyal following, the VW Bus is more than a vehicle—it's a lifestyle on wheels."
     },
     {
@@ -92,7 +92,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "4 Speed Automatic",
         color: "Red",
-        imageUrl: "../images/subaru_legacy.jpg",
+        imageUrl: "subaru_legacy.jpg",
         description: "Now available is a well-maintained 2001 Subaru Legacy B4, finished in a bold red exterior that perfectly complements its sport-oriented design and all-wheel-drive capabilities. With 102,000 km on the clock and a smooth 4-speed automatic transmission, this Legacy B4 offers a perfect blend of everyday usability and performance. /n Under the hood, the Legacy B4 features Subaru’s renowned all-wheel-drive system, making it a reliable and capable option for handling various driving conditions, whether you’re navigating city streets, winding country roads, or tackling challenging weather. The 4-speed automatic provides a balanced driving experience, giving you both comfort and responsiveness. /n Inside, the Legacy B4 offers a practical yet refined cabin, with ample space for passengers and cargo alike. The well-designed interior is paired with Subaru's signature durability, ensuring that it remains a comfortable, reliable ride for years to come. /n Whether you're after a dependable daily driver or a sporty sedan with a little extra performance edge, the 2001 Subaru Legacy B4 is the perfect combination of reliability, style, and functionality. Well-maintained examples like this one are becoming increasingly rare, making this a fantastic opportunity to own a piece of Subaru’s performance legacy."
     },
     {
@@ -104,7 +104,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "3 Speed Automatic",
         color: "Red",
-        imageUrl: "../images/thunderbird.jpg",
+        imageUrl: "thunderbird.jpg",
         description: "Presenting an iconic piece of American automotive history: the 1957 Ford Thunderbird, finished in a striking red exterior that perfectly reflects its timeless elegance and performance. With only 40,000 km on the odometer and a smooth 3-speed automatic transmission, this Thunderbird is in remarkable condition, making it an excellent addition to any classic car collection. /n The 1957 Thunderbird, known as the personal luxury car, set the standard for refined styling and spirited driving. Its sleek, sculpted lines, chrome accents, and distinctive front grille give it a bold, commanding presence wherever it goes. This classic is powered by a V8 engine, delivering smooth power and a refined driving experience that remains just as thrilling today as when it first debuted. /n Inside, the Thunderbird continues to impress with its luxurious interior, featuring plush seating and classic details that speak to the mid-century modern era. Whether cruising through city streets or enjoying a scenic drive on the open road, this vehicle offers both style and comfort. /n A true collector’s gem, the 1957 Ford Thunderbird represents the height of 1950s American automotive craftsmanship. Low-mileage examples like this one are becoming increasingly rare, making this a fantastic opportunity to own a piece of motoring history."
     },
     {
@@ -116,7 +116,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed automatic",
         color: "Blue",
-        imageUrl: "../images/carrera.jpg",
+        imageUrl: "carrera.jpg",
         description: "Introducing the 2023 Porsche 911 Carrera, finished in an eye-catching blue that perfectly highlights its legendary design and cutting-edge engineering. With only 54,000 km on the odometer and equipped with a smooth 5-speed automatic transmission, this 911 offers the perfect balance of daily drivability and exhilarating performance. /n The Porsche 911 is renowned for its exceptional handling, precise steering, and dynamic driving experience, and this Carrera model is no exception. Powered by a high-performance engine and featuring Porsche’s iconic rear-engine layout, it delivers an unmatched driving experience that enthusiasts crave, whether you're carving through mountain roads or cruising the highways. /n Inside, the 2023 911 Carrera is as luxurious as it is performance-focused, offering a modern interior with premium materials, intuitive technology, and supportive seating designed for those who demand both comfort and style. Whether you're behind the wheel or enjoying the view as a passenger, every detail of this vehicle reflects Porsche's commitment to excellence. /n With its combination of luxury, speed, and timeless style, the 2023 Porsche 911 Carrera is a must-have for those who seek the ultimate sports car experience. Don’t miss your chance to own this near-new example of Porsche’s legendary craftsmanship."
     },
     {
@@ -128,7 +128,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Manual",
         color: "White",
-        imageUrl: "../images/capri.jpg",
+        imageUrl: "capri.jpg",
         description: "Up for sale is a stunning 1986 Ford Capri, finished in a crisp white exterior that perfectly complements its sleek, sporty design. With only 12,000 km on the odometer and equipped with a 5-speed manual transmission, this Capri is an exceptionally low-mileage example of one of Europe’s most beloved performance cars. /n The Capri, known for its agile handling and distinctive fastback design, was Ford's answer to the growing demand for sporty, yet affordable, coupes. This particular model is in fantastic condition, with the 5-speed manual transmission delivering a direct, engaging driving experience. Whether you're cruising down the road or enjoying spirited drives, the Capri’s nimble handling and lively performance make it a joy to drive. /n Inside, the car retains its original charm, with a simple, driver-focused interior that still feels fresh and functional. The 12,000 km mileage speaks to the car's careful ownership, and its low mileage makes it a rare find in today’s market. /n For classic car collectors or those looking to enjoy a piece of European automotive history, the 1986 Ford Capri offers both performance and style, all while remaining in remarkably original condition."
     },
     {
@@ -140,7 +140,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Manual",
         color: "Yellow",
-        imageUrl: "../images/giulia.jpg",
+        imageUrl: "giulia.jpg",
         description: "Presenting an extraordinary example of Italian engineering and design: the 1967 Alfa Romeo Giulia, finished in a stunning yellow that captures the car’s vibrant spirit and iconic style. With just 22,000 km on the clock and equipped with a 5-speed manual transmission, this Giulia is a rare find, offering an authentic driving experience that’s as exhilarating as it is beautiful. /n The Alfa Romeo Giulia is celebrated for its perfect blend of classic design, dynamic performance, and a sporty edge. Its lightweight, rear-wheel-drive layout and sharp handling make it a true driver’s car, while the 5-speed manual gearbox ensures a direct, responsive connection between the driver and the road. Whether you're tackling winding country roads or simply cruising through the city, the Giulia’s performance remains unparalleled. /n The striking yellow exterior sets this Giulia apart, making it a true head-turner wherever it goes. Inside, the minimalist yet functional interior retains its vintage charm, showcasing the quality craftsmanship that Alfa Romeo is known for. Every detail reflects the Italian passion for style, comfort, and performance. /n With only 22,000 km, this 1967 Giulia is a collector’s dream—an incredibly low-mileage, well-maintained classic that is perfect for both driving enjoyment and adding to a premium car collection. Don’t miss the chance to own one of Italy’s finest automotive icons."
     }
 ]
