@@ -61,6 +61,17 @@
     border-bottom: 1px solid var(--border-color);
 
 }
+
+.about-us-info-reverse{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
 .about-us-img img{
     
     width: 30rem;
@@ -71,5 +82,23 @@
 .about-us-text p{
     width: 40rem; /* or use max-width */
     white-space: normal; /* Reset any potential "nowrap" behavior */
-  overflow-wrap: break-word;   
+    overflow-wrap: break-word;   
+}
+
+@media (max-width: 560px) {
+    .about-us-info{
+        flex-direction: column;
+    }
+
+    .about-us-info-reverse{
+        flex-direction: column-reverse;
+    }
+
+    .about-us-img img{
+        width: 100%;
+    }
+
+    .about-us-text p{
+        width: 100%;
+    }
 }
