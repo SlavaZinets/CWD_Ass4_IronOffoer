@@ -12,8 +12,8 @@
 .sign-in-container, .sign-up-container{
     display: flex;
     flex-direction: column;
-    
-    
+
+
     gap: 2rem;
     padding: 0 8rem;
 }
@@ -25,22 +25,22 @@
 }
 .sign-in-title{
     font-size: 4rem;
-    
+
 }
 .sign-up-title{
-    
+
     font-size: 1.5rem;
 }
 .login-side-image-sign-in{
     width:50%;
-    
+
     height:auto;
     border-radius: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .login-side-image-sign-up{
     width:45%;
-    
+
     height:auto;
      border-radius: 0.5rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -57,12 +57,12 @@
 .sign-in-form label {
   display: flex;
   flex-direction: column;
- 
+
 }
 
 .sign-in-form input {
   padding: 0.6rem 0.5rem;
-    
+
   border: 1px solid #ccc;
   border-radius: 6px;
   transition: border-color 0.2s;
@@ -82,7 +82,7 @@
 
 
 .forgot-password-button:hover {
-  
+
   text-decoration: underline;
 }
 
@@ -102,8 +102,31 @@
   border-radius: 6px;
   font-size: 14px;
   margin-top: -10px;
-  
   display: none;
+}
+
+.error-message.visible {
+  display: block;
+}
+
+.success-message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.success-message-container h2 {
+  font-size: 1.8rem;
+  color: #4CAF50;
+}
+
+.success-message-container p {
+  font-size: 1.2rem;
+  color: #555;
 }
 .sign-in-button:hover {
   background-color: var(--button-hover);

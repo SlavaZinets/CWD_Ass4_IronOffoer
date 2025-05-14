@@ -21,7 +21,7 @@ const ProductCard = ({ car }) => {
     return (
         <a href={`cars/${car.id}`} className="product_card">
             <div className="product_card_image_container">
-                <LikeButton isLiked={false} />
+                <LikeButton id={car.id} />
                 <img
                     className="product_card_image"
                     src={imageToUse}

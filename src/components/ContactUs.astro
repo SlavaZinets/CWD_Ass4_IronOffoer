@@ -6,7 +6,7 @@ import callIcon from "../images/icons/call_icon.svg";
 import mailIcon from "../images/icons/mail_ico.svg";
 import customerSupportIcon from "../images/icons/customerSupport-img.webp";
 
-import PopUpContainer from "./PopUpContainer.astro";
+import PopUpContainer from "./PopUpContainer.jsx";
 ---
 
 <div class="contact-us-container">
@@ -39,7 +39,7 @@ import PopUpContainer from "./PopUpContainer.astro";
                 worry — our support team is here to steer you in the right
                 direction.
             </p>
-            <button class="contact-us-button"> Contact Support </button>
+            <!-- Button removed as it's now handled by PopUpContainer.jsx -->
         </div>
     </div>
     <div class="location-title">
@@ -66,7 +66,7 @@ import PopUpContainer from "./PopUpContainer.astro";
         </div>
     </div>
 </div>
-<PopUpContainer>
+<PopUpContainer buttonText="Contact Support" buttonStyle="contact-us-button" client:load>
     <div class="success-message">Your message has been sent successfully!</div>
     <div class="contact-form-container">
         <h2 class="contact-form-title">Contact Us</h2>
@@ -96,8 +96,6 @@ import PopUpContainer from "./PopUpContainer.astro";
     </div>
 </PopUpContainer>
 <script>
-    const contact_us_button = document.querySelector(".contact-us-button");
-    const pop_up = document.querySelector(".pop-up-container");
     const contact_form = document.querySelector(
         ".contact-form",
     ) as HTMLFormElement;
@@ -109,10 +107,6 @@ import PopUpContainer from "./PopUpContainer.astro";
     const successMessage = document.querySelector(
         ".success-message",
     ) as HTMLElement;
-
-    contact_us_button?.addEventListener("click", () => {
-        pop_up?.classList.add("active");
-    });
     contact_form?.addEventListener("submit", (e) => {
         const emailValue = email.value;
 

@@ -42,25 +42,66 @@ export const updateAccount = async (account) => {
 }
 
 
-export const updateLikedCars = async (isLiked, carId, accountId) => {
+// addToLikedCars: if true, adds the car to liked cars; if false, removes it
+export const updateLikedCars = async (addToLikedCars, carId, accountId) => {
+    if (!accountId) {
+        console.error('Cannot update liked cars: No account ID provided');
+        return;
+    }
 
     try {
-        const account = await fetch(`${url}/${accountId}`, {
-            method: "GET",
-        }).then((response) => response.json());
-
-        if (isLiked) {
-            account.likedCars.push(carId);
-        } else {
-            account.likedCars = account.likedCars.filter((id) => id !== carId);
+        // Get the current account data
+        const response = await fetch(`${url}/${accountId}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch account: ${response.status}`);
         }
 
-        await updateAccount(account);
+        const account = await response.json();
+        console.log('Current account data:', account);
 
+        // Initialize likedCars array if it doesn't exist
+        if (!account.likedCars) {
+            account.likedCars = [];
+        }
 
+        // Convert carId to number if it's a string
+        const numericCarId = typeof carId === 'string' ? parseInt(carId, 10) : carId;
+        console.log(`Action: ${addToLikedCars ? 'Adding' : 'Removing'} car ${numericCarId} ${addToLikedCars ? 'to' : 'from'} liked cars`);
 
+        if (addToLikedCars) {
+            // Add car ID to liked cars if not already present
+            if (!account.likedCars.includes(numericCarId)) {
+                account.likedCars.push(numericCarId);
+                console.log(`Added car ${numericCarId} to liked cars`);
+            } else {
+                console.log(`Car ${numericCarId} already in liked cars, no action needed`);
+            }
+        } else {
+            // Remove car ID from liked cars
+            const initialLength = account.likedCars.length;
+            account.likedCars = account.likedCars.filter(id => id !== numericCarId);
+            if (account.likedCars.length < initialLength) {
+                console.log(`Removed car ${numericCarId} from liked cars`);
+            } else {
+                console.log(`Car ${numericCarId} not found in liked cars, no action needed`);
+            }
+        }
+
+        console.log('Updated likedCars:', account.likedCars);
+
+        // Update account in API
+        const updatedAccount = await updateAccount(account);
+        console.log('Account updated successfully:', updatedAccount);
+
+        // Update session storage
+        if (updatedAccount) {
+            sessionStorage.setItem("account", JSON.stringify(updatedAccount));
+        }
+
+        return updatedAccount;
     } catch (error) {
-        console.log(error);
+        console.error('Error updating liked cars:', error);
+        throw error; // Re-throw to allow caller to handle
     }
 }
 

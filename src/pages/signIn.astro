@@ -1,5 +1,8 @@
 ---
-import SignInPage from "../components/SignIn.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+import SignIn from "../components/SignIn.jsx";
 ---
 
-<SignInPage />
+<DefaultLayout>
+    <SignIn client:load />
+</DefaultLayout>
