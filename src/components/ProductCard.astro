@@ -13,7 +13,7 @@ const getImage = images[car.imageUrl];
 <a href={"cars/" + car.id} class="product_card">
     {getImage ? (
             <div class="product_card_image_container">
-                <LikeButton isAbsolute={true} isLiked={false}/>
+                <LikeButton isLiked={false}/>
                 <Image class="product_card_image" src={getImage()} alt={car.title} />
             </div>
 
@@ -26,7 +26,7 @@ const getImage = images[car.imageUrl];
 
         <p> {car.origin || "Unknown origin"}, {car.run || "Unknown run"}, {car.wheel || "Unknown wheel"}, {car.transmission || "Unknown transmission"}, {car.color || "Unknown color"}</p>
         <p class="product_card_price">
-            price:
+            Price:
             <span>€ {car.price}</span>
         </p>
     </div>

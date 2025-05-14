@@ -29,7 +29,7 @@ const handleClick = () => {
     <div class="lot">
         {getImage ? (
                 <div class="img-container">
-                    <LikeButton isAbsolute={true} isLiked={false}/>
+                    <LikeButton isLiked={false}/>
                     <Image class="card-img" src={getImage()} alt={car.title}/>
                 </div>
         ) : (

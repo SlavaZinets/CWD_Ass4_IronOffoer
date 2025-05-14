@@ -1,180 +1,135 @@
 ---
-
-
-import  "../styles/global.css"
+import "../styles/global.css"
 import "../styles/filterBar.css";
+import { cars } from "../data/cars.js";
 ---
 
 <div class="filter-bar">
-    <h1>Filters</h1>
-    <div class="price-filter-content">
-        <h3>Price, Euro</h3>
-        <form action="" class="price-filter">
-            <input type="text" class="price-input-min" />
+    <form class="filter_form">
+        <fieldset class="filter_range">
+            <legend class="filter_subtitle" >Price</legend>
+                <label>
+                    <input id="price-from" class="filter_input" type="number" placeholder="from"/>
+                </label>
+
             <span>-</span>
-            <input type="text" class="price-input-max" />
-            <button class="price-button">Search</button>
-        </form>
-        <div class="price-slider">  
-            <div class="custom-slider">
-                
-            </div>
-            <input
-                type="range"
-                name="min_value"
-                class="min_value"
-                min="1000"
-                max="12000"
-                value="1500"
-                
-            />
-            <input
-                type="range"
-                name="max_value"
-                class="max_value"
-                min="1000"
-                max="12000"
-                value="3000"
-                
-            />
-        </div>
-    </div>
-    <div class="auction-type-filter-content">
-        <h3>Auction Type</h3>
-        <form action="" class="auction-type-filter">
-            
-            
-            <label class="auction-type-label">Upcoming auctions
 
-                <span class="upcoming-auctions-checkbox">
-                    <div class="check-box1-indicator"></div>
-                </span>
+            <label>
+                <input id="price-to" class="filter_input" type="number" placeholder="to" />
+            </label>
+        </fieldset>
+
+        <fieldset class="filter_range">
+            <legend class="filter_subtitle" >Run</legend>
+            <label>
+                <input id="run-from" class="filter_input" type="number" placeholder="from"/>
             </label>
 
-            <label class="auction-type-label">Live auctions
-                <span class="live-auctions-checkbox">
-                    <div class="check-box2-indicator"></div>
+            <span>-</span>
 
-                </span>
+            <label>
+                <input id="run-to" class="filter_input" type="number" placeholder="to" />
             </label>
-        </form>
-    </div>
+        </fieldset>
+
+        <fieldset class="filter_choice">
+            <legend class="filter_subtitle" >Wheel placement</legend>
+            <label class="filter_label">
+                <input id="wheel-left" class="filter_input" type="checkbox" value="Left Hand Drive"/>
+                <span>Left hand</span>
+            </label>
+
+            <label class="filter_label">
+                <input id="wheel-right" class="filter_input" type="checkbox" value="Right Hand Drive"/>
+                <span>Right hand</span>
+            </label>
+
+        </fieldset>
+
+        <fieldset class="filter_choice">
+            <legend class="filter_subtitle">Origin</legend>
+            <label class="filter_label" >
+                <input id="origin-germany" class="filter_input" type="checkbox" value="Germany"/>
+                <span>Germany</span>
+            </label>
+
+            <label class="filter_label">
+                <input id="origin-uk" class="filter_input" type="checkbox" value="UK"/>
+                <span>UK</span>
+            </label>
+
+        </fieldset>
+
+        <button id="filter-button" class="filter_button" type="button">Apply filters</button>
+    </form>
 </div>
-<script>
-    // get elements from html document
-    const upcoming_auctions_checkbox = document.querySelector(".upcoming-auctions-checkbox") as HTMLInputElement;
-    const live_auctions_checkbox = document.querySelector(".live-auctions-checkbox") as HTMLInputElement;
-    const check_box1_indicator = document.querySelector(".check-box1-indicator") as HTMLInputElement; 
-    const check_box2_indicator = document.querySelector(".check-box2-indicator") as HTMLInputElement; 
-    const min_input = document.querySelector(".min_value") as HTMLInputElement;
-    const max_input = document.querySelector(".max_value") as HTMLInputElement;
-    const price_input_min = document.querySelector(".price-input-min") as HTMLInputElement;
-    const price_input_max = document.querySelector(".price-input-max") as HTMLInputElement;
-    const price_button = document.querySelector(".price-button") as HTMLInputElement;
 
-    const updateProgress = () => {
-        // Finds the difference between absolute max and min price
-        const range = parseInt(max_input.max) - parseInt(min_input.min);
-        // Finds the difference between selected min and max values
-        const currentRange =
-            parseInt(max_input.value) - parseInt(min_input.value);
-        // Finds the width in percents
-        const width = (currentRange / range) * 100;
-        // Calculate distance between absolute min and selected min value in percents
-        const minOffset =
-            ((parseInt(min_input.value) - parseInt(min_input.min)) / range) *
-            100;
-        
-    };
-    const updateInputFields = () => {
-        if (price_input_min) price_input_min.value = min_input.value; // Set the min value from slider to the min price input field
-        if (price_input_max) price_input_max.value = max_input.value; // Set the max value from slider to the max price input field
-    };
+<script is:inline define:vars={{ cars }}>
+    // Make a copy of the cars data for client-side use
+    const carsData = cars ;
 
-    min_input?.addEventListener("input", () => {
-        price_button?.classList.remove("price-button-disabled");
-            price_button.disabled = false;
-        // if slider min value becomes bigger than max value
-        if (parseInt(min_input.value) >= parseInt(max_input.value)) {
-            max_input.value = min_input.value; // make max value the same as min value
-        }
-        updateProgress(); // update price progress bar
-        updateInputFields(); // update values in price input fields
+    // Get filter elements
+    const filterButton = document.getElementById('filter-button');
+    const priceFromInput = document.getElementById('price-from');
+    const priceToInput = document.getElementById('price-to');
+    const runFromInput = document.getElementById('run-from');
+    const runToInput = document.getElementById('run-to');
+    const wheelLeftCheckbox = document.getElementById('wheel-left');
+    const wheelRightCheckbox = document.getElementById('wheel-right');
+
+    // Get all origin checkboxes
+    const originCheckboxes = document.querySelectorAll('input[id^="origin-"]');
+
+    // Add event listener to the filter button
+    filterButton.addEventListener('click', () => {
+        // Get filter values
+        const priceFrom = priceFromInput.value ? parseInt(priceFromInput.value) : 0;
+        const priceTo = priceToInput.value ? parseInt(priceToInput.value) : Number.MAX_SAFE_INTEGER;
+        const runFrom = runFromInput.value ? parseInt(runFromInput.value) : 0;
+        const runTo = runToInput.value ? parseInt(runToInput.value) : Number.MAX_SAFE_INTEGER;
+        const wheelLeft = wheelLeftCheckbox.checked;
+        const wheelRight = wheelRightCheckbox.checked;
+
+        // Get selected origins by reading values from checked checkboxes
+        const selectedOrigins = [];
+        originCheckboxes.forEach(checkbox => {
+            if (checkbox.checked && checkbox.value) {
+                selectedOrigins.push(checkbox.value);
+            }
+        });
+
+        // Filter the cars data
+        const filteredCars = carsData.filter(car => {
+            // Filter by price
+            if (car.price < priceFrom || car.price > priceTo) {
+                return false;
+            }
+
+            // Filter by run (need to convert from string like "50,000 km" to number)
+            const runValue = parseInt(car.run.replace(/,/g, ''));
+            if (runValue < runFrom || runValue > runTo) {
+                return false;
+            }
+
+            // Filter by wheel placement
+            if ((wheelLeft || wheelRight) &&
+                (!wheelLeft || car.wheel !== 'Left Hand Drive') &&
+                (!wheelRight || car.wheel !== 'Right Hand Drive')) {
+                return false;
+            }
+
+            // Filter by origin - if any origins are selected, check if car's origin is in the array
+            if (selectedOrigins.length > 0) {
+                // If car's origin is in the selectedOrigins array, keep it; otherwise, filter it out
+                if (!selectedOrigins.includes(car.origin)) {
+                    return false;
+                }
+            }
+
+            return true;
+        });
+
+        // Log the filtered results to the console
+        console.log('Filtered Cars:', filteredCars);
     });
-    max_input.addEventListener("input", () => {
-        price_button?.classList.remove("price-button-disabled");
-        price_button.disabled = false;
-        // if slider max value becomes lower than min value
-        if (parseInt(max_input.value) <= parseInt(min_input.value)) {
-            min_input.value = max_input.value; // make min value the same as max value
-        }
-        updateProgress(); // update price progress bar
-        updateInputFields(); // update values in price input fields
-    });
-    updateProgress(); // update price progress bar
-    updateInputFields(); // update values in price input fields
-
-    
-
-    // Handle blur on max price input
-    price_input_max.addEventListener("blur", () => {
-        price_input_max.classList.remove(
-            "price-input-focused",
-            "price-input-exceeding-value",
-        );
-        price_input_max.classList.add("price-input-max");
-    });
-
-    // Restrict max input to digits only and validate value
-    price_input_max.addEventListener("input", () => {
-        price_input_max.value = price_input_max.value.replace(/[^0-9]/g, "");
-
-        const maxValue = parseInt(price_input_max.value);
-        const minValue = parseInt(price_input_min.value);
-        const minLimit = parseInt(min_input.min);
-        const maxLimit = parseInt(max_input.max);
-
-        if (maxValue < minLimit || maxValue > maxLimit || maxValue < minValue ) {
-            
-            price_button?.classList.add("price-button-disabled");
-            price_button.disabled = true;
-        } else {
-            
-            price_button?.classList.remove("price-button-disabled");
-            price_button.disabled = false;
-            price_input_max.classList.add("price-input-focused");
-        }
-    });
-
-    // Restrict min input to digits only and validate value
-    price_input_min.addEventListener("input", () => {
-        price_input_min.value = price_input_min.value.replace(/[^0-9]/g, "");
-
-        const minValue = parseInt(price_input_min.value);
-        const maxValue = parseInt(price_input_max.value);
-        const minLimit = parseInt(min_input.min);
-        const maxLimit = parseInt(max_input.max);
-
-        if (minValue < minLimit || minValue > maxLimit || minValue > maxValue) {
-            
-            price_button?.classList.add("price-button-disabled");
-            price_button.disabled = true;
-        } else {
-            
-            price_button?.classList.remove("price-button-disabled");
-            price_button.disabled = false;
-            
-        }
-    });
-    upcoming_auctions_checkbox.onclick = function () {
-        upcoming_auctions_checkbox.classList.toggle("changeCheckBoxBackGround");
-        check_box1_indicator.classList.toggle("indicator-switched-on");
-        
-
-    };
-    live_auctions_checkbox.onclick = function(){
-        live_auctions_checkbox.classList.toggle("changeCheckBoxBackGround");
-        check_box2_indicator.classList.toggle("indicator-switched-on");
-
-    }
 </script>
