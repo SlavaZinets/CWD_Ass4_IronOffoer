@@ -8,7 +8,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "6 Speed Automatic",
         color: "Silver",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 4,
@@ -19,7 +20,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed DSG",
         color: "Black",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 5,
@@ -30,7 +32,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "8 Speed Automatic",
         color: "White",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 6,
@@ -41,7 +44,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "8 Speed Automatic",
         color: "British Racing Green",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 7,
@@ -52,7 +56,8 @@ export const cars = [
         wheel: "Right Hand Drive",
         transmission: "8 Speed Automatic",
         color: "Red",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 8,
@@ -63,7 +68,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed DCT",
         color: "Alpine White",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 9,
@@ -74,7 +80,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "8 Speed Automatic",
         color: "Sapphire Black",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 10,
@@ -85,7 +92,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "9 Speed Automatic",
         color: "Obsidian Black",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 11,
@@ -96,7 +104,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "5 Speed Automatic",
         color: "Silver",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 12,
@@ -107,7 +116,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed PDK",
         color: "Guards Red",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 13,
@@ -118,7 +128,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "6 Speed Manual",
         color: "Racing Yellow",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 14,
@@ -129,7 +140,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed DCT",
         color: "Rosso Corsa",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 15,
@@ -140,7 +152,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed DCT",
         color: "Verde Mantis",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 16,
@@ -151,7 +164,8 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed SSG",
         color: "Papaya Spark",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 17,
@@ -162,7 +176,8 @@ export const cars = [
         wheel: "Right Hand Drive",
         transmission: "6 Speed DCT",
         color: "Bayside Blue",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
     },
     {
         id: 18,
@@ -173,7 +188,8 @@ export const cars = [
         wheel: "Right Hand Drive",
         transmission: "6 Speed Manual",
         color: "Renaissance Red",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     },
     {
         id: 19,
@@ -184,7 +200,9 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "8 Speed DCT",
         color: "Torch Red",
-        imageUrl: "../images/car.webp"
+        imageUrl: "car.webp",
+        description: "This is a description of the car."
+
     },
     {
         id: 20,
@@ -195,6 +213,7 @@ export const cars = [
         wheel: "Left Hand Drive",
         transmission: "7 Speed DCT",
         color: "Shadow Black",
-        imageUrl: "../images/car2.webp"
+        imageUrl: "car2.webp",
+        description: "This is a description of the car."
     }
 ]

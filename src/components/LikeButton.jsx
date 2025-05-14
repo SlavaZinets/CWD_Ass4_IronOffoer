@@ -8,7 +8,7 @@ const LikeButton = ({ id }) => {
     const [isLiked, setIsLiked] = useState(false);
     const [isProcessing, setIsProcessing] = useState(false);
 
-    // Check if this car is in the user's liked cars when component mounts or account changes
+    // Check if this car is in the user's liked cars
     useEffect(() => {
         // Function to check if the car is liked
         const checkIfLiked = () => {
@@ -32,14 +32,7 @@ const LikeButton = ({ id }) => {
         // Check initially
         checkIfLiked();
 
-        // Set up subscription to account changes
-        const unsubscribe = account.subscribe(() => {
-            checkIfLiked();
-        });
-
-        // Clean up subscription
-        return () => unsubscribe();
-    }, [id]);
+    }, [id, isLiked]);
 
     const handleClick = async (e) => {
         e.preventDefault(); // Prevent navigation when clicking the like button
@@ -77,22 +70,28 @@ const LikeButton = ({ id }) => {
             // If currently not liked, we want to add it (addToLikedCars=true)
             const addToLikedCars = !isLiked;
 
-            // Update UI optimistically
-            setIsLiked(addToLikedCars);
+            // Don't update UI optimistically - wait for API response
+
+            // Convert id to number if it's a string
+            const numericId = typeof id === 'string' ? parseInt(id, 10) : id;
+            console.log(`Attempting to ${addToLikedCars ? 'add' : 'remove'} car ${numericId} ${addToLikedCars ? 'to' : 'from'} liked cars`);
 
             // Call API to update liked cars
-            await updateLikedCars(addToLikedCars, id, userData.id);
+            const updatedAccount = await updateLikedCars(addToLikedCars, numericId, userData.id);
 
-            // Update the account store with the new data from session storage
-            const updatedUserDataStr = sessionStorage.getItem("account");
-            if (updatedUserDataStr) {
-                const updatedUserData = JSON.parse(updatedUserDataStr);
-                account.set(updatedUserData);
+            // Only update UI if API call was successful
+            if (updatedAccount) {
+                console.log('Successfully updated liked cars, updating UI');
+                setIsLiked(addToLikedCars);
+
+                // Update the account store with the new data
+                account.set(updatedAccount);
+            } else {
+                console.error('Failed to update liked cars: No response from API');
             }
         } catch (error) {
             console.error("Error updating liked cars:", error);
-            // Revert UI state if API call fails
-            setIsLiked(!isLiked);
+            // Don't change UI state since we didn't update it optimistically
         } finally {
             // Clear processing state
             setIsProcessing(false);

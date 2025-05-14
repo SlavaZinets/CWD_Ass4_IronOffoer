@@ -3,6 +3,6 @@ import DefaultLayout from "../layouts/DefaultLayout.astro";
 import SignIn from "../components/SignIn.jsx";
 ---
 
-<DefaultLayout>
-    <SignIn client:load />
+<DefaultLayout title="Sign In">
+    <SignIn onLoginSuccess={null} client:load />
 </DefaultLayout>

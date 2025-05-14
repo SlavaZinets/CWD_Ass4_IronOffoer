@@ -13,15 +13,7 @@ import { isLogged, account } from "../stores/mainStore.js";
 import { updateAccount } from "../services/mockApiService.js";
 import PopUpContainer from "./PopUpContainer.jsx";
 
-export default function Account(props) {
-    // Destructure props with default values
-    const {
-        name = '',
-        lastName = '',
-        dateOfBirth = '',
-        email = '',
-        phoneNumber = '',
-    } = props || {};
+export default function Account() {
 
 
     const [activeSection, setActiveSection] = useState(0);
@@ -30,11 +22,11 @@ export default function Account(props) {
     const [likedCars, setLikedCars] = useState([]);
 
     const [formData, setFormData] = useState({
-        name: name || '',
-        lastName: lastName || '',
-        dateOfBirth: dateOfBirth || '',
-        email: email || '',
-        phoneNumber: phoneNumber || ''
+        name: '',
+        lastName: '',
+        dateOfBirth: '',
+        email: '',
+        phoneNumber: ''
     });
 
 
@@ -53,6 +45,8 @@ export default function Account(props) {
                     email: accountData.email || '',
                     phoneNumber: accountData.phoneNumber || ''
                 });
+
+                setLikedCars(accountData.likedCars || []);
 
             }
         }

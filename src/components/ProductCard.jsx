@@ -6,16 +6,27 @@ import LikeButton from "./LikeButton.jsx";
 
 const ProductCard = ({ car }) => {
 
-    const [imageToUse, setImageToUse] = useState()
+    const [imageToUse, setImageToUse] = useState();
 
     useEffect(() => {
-       async function getImage() {
-            const image = await import(`${car.imageUrl}`);
-            setImageToUse(image.default.src);
+        async function getImage() {
+            try {
+                // Use import.meta.glob for proper path resolution in both dev and build
+                const images = import.meta.glob('/src/images/*.{png,jpg,jpeg,gif,webp}', { eager: true });
+                const imagePath = `/src/images/${car.imageUrl}`;
+                
+                if (images[imagePath]) {
+                    setImageToUse(images[imagePath].default.src);
+                } else {
+                    console.error(`Image not found: ${imagePath}`);
+                }
+            } catch (error) {
+                console.error("Error loading image:", error);
+            }
         }
 
         getImage();
-    }, []);
+    }, [car.imageUrl]);
 
 
     return (

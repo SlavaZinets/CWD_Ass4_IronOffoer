@@ -13,7 +13,9 @@ export default function FilterBar() {
     const [wheelLeft, setWheelLeft] = useState(false);
     const [wheelRight, setWheelRight] = useState(false);
     const [originGermany, setOriginGermany] = useState(false);
-    const [originUK, setOriginUK] = useState(false);
+    const [originUSA, setOriginUSA] = useState(false);
+    const [originJapan, setOriginJapan] = useState(false);
+    const [originItaly, setOriginItaly] = useState(false);
 
 
     // Handle filter application
@@ -27,7 +29,9 @@ export default function FilterBar() {
         // Get selected origins
         const selectedOrigins = [];
         if (originGermany) selectedOrigins.push("Germany");
-        if (originUK) selectedOrigins.push("UK");
+        if (originUSA) selectedOrigins.push("USA");
+        if (originJapan) selectedOrigins.push("Japan");
+        if (originItaly) selectedOrigins.push("Italy");
 
         // Filter the cars data
         const filteredCarsData = cars.filter(car => {
@@ -151,20 +155,43 @@ export default function FilterBar() {
                         <span>Germany</span>
                     </label>
 
+
                     <label className="filter_label">
-                        <input 
-                            className="filter_input" 
-                            type="checkbox" 
-                            value="UK"
-                            checked={originUK}
-                            onChange={(e) => setOriginUK(e.target.checked)}
+                        <input
+                            className="filter_input"
+                            type="checkbox"
+                            value="USA"
+                            checked={originUSA}
+                            onChange={(e) => setOriginUSA(e.target.checked)}
                         />
-                        <span>UK</span>
+                        <span>USA</span>
+                    </label>
+
+                    <label className="filter_label">
+                        <input
+                            className="filter_input"
+                            type="checkbox"
+                            value="Japan"
+                            checked={originJapan}
+                            onChange={(e) => setOriginJapan(e.target.checked)}
+                        />
+                        <span>Japan</span>
+                    </label>
+
+                    <label className="filter_label">
+                        <input
+                            className="filter_input"
+                            type="checkbox"
+                            value="Italy"
+                            checked={originItaly}
+                            onChange={(e) => setOriginItaly(e.target.checked)}
+                        />
+                        <span>Italy</span>
                     </label>
                 </fieldset>
 
                 <button 
-                    className="filter_button" 
+                    className="filter_button red_button"
                     type="button"
                     onClick={handleApplyFilters}
                 >

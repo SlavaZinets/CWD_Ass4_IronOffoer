@@ -10,33 +10,25 @@ import odometer from "../images/icons/carInfoIcons/odometer.svg"
 import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
 import transmission from "../images/icons/carInfoIcons/transmission.svg"
 import color from "../images/icons/carInfoIcons/color.svg"
-import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
 import LikeButton from "./LikeButton.jsx";
 import PopUpContainer from "./PopUpContainer.jsx";
 
 
 const {car} = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,gif,webp}');
-const getImage = images[car.imageUrl];
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{png,jpg,jpeg,gif,webp}');
+const imagePath = `/src/images/${car.imageUrl}`
 
-const handleClick = () => {
-    alert("Button clicked");
-}
 ---
 
 <div class="detailed-card">
     <div class="lot">
-        {getImage ? (
+
                 <div class="img-container">
-                    <LikeButton isLiked={false} client:load/>
-                    <Image class="card-img" src={getImage()} alt={car.title}/>
+                    <LikeButton id={car.id} client:load/>
+                    <Image class="card-img" src={images[imagePath]()}} alt={car.title}/>
                 </div>
-        ) : (
-                <div class="img-placeholder-container">
-                    <Image class="img-placeholder" src={imagePlaceholder} alt={car.title}/>
-                </div>
-        )}
+
         <div class="characteristics">
             <div class="car-details">
                 <h3 class="title">{car?.title || "A nice car"} for sale</h3>

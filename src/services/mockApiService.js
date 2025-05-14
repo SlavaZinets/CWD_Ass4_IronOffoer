@@ -30,14 +30,15 @@ export const updateAccount = async (account) => {
             body: JSON.stringify(account),
         });
         if (!response.ok) {
-            throw new Error("Failed to update account");
+            throw new Error(`Failed to update account: ${response.status}`);
         }
         const updatedAccount = await response.json();
-        console.log(updatedAccount);
+        console.log('Account updated successfully:', updatedAccount);
         return updatedAccount;
 
     } catch (error) {
-        console.log(error);
+        console.error('Error updating account:', error);
+        throw error; // Re-throw to allow caller to handle
     }
 }
 
@@ -46,7 +47,7 @@ export const updateAccount = async (account) => {
 export const updateLikedCars = async (addToLikedCars, carId, accountId) => {
     if (!accountId) {
         console.error('Cannot update liked cars: No account ID provided');
-        return;
+        throw new Error('Cannot update liked cars: No account ID provided');
     }
 
     try {
@@ -91,15 +92,17 @@ export const updateLikedCars = async (addToLikedCars, carId, accountId) => {
 
         // Update account in API
         const updatedAccount = await updateAccount(account);
+        if (!updatedAccount) {
+            throw new Error('Failed to update account with new liked cars');
+        }
         console.log('Account updated successfully:', updatedAccount);
 
         // Update session storage
-        if (updatedAccount) {
-            sessionStorage.setItem("account", JSON.stringify(updatedAccount));
-        }
+        sessionStorage.setItem("account", JSON.stringify(updatedAccount));
 
         return updatedAccount;
     } catch (error) {
+        console.error('Error in updateLikedCars:', error);
         throw error;
     }
 }
