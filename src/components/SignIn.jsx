@@ -27,7 +27,7 @@ export default function SignIn ({ onLoginSuccess }) {
         return;
     }
 
-    // Validate password is not empty
+    // Validate that password is not empty
     if (!password.trim()) {
         setErrorMessage("Please enter your password.");
         setShowError(true);
@@ -51,21 +51,19 @@ export default function SignIn ({ onLoginSuccess }) {
             account.set(accountData);
             isLogged.set(true);
 
-            // Call onLoginSuccess callback if provided
             if (onLoginSuccess) {
                 onLoginSuccess();
             } else {
-                // Default behavior if no callback provided
                 window.location.href = "/";
             }
         } else {
+
             // Invalid credentials
             isLogged.set(false);
             setErrorMessage("Invalid email or password.");
             setShowError(true);
         }
     } catch (error) {
-        console.error("Error during sign in:", error);
         setErrorMessage("An error occurred. Please try again.");
         setShowError(true);
     } finally {
@@ -113,12 +111,12 @@ export default function SignIn ({ onLoginSuccess }) {
             onClick={handleSignIn}
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Signing In...' : 'Sign In'}
+            Sign In
           </button>
 
         </form>
         <span>
-          Don't have an account?{" "}
+          Don't have an account?
           <a href="/signUp" className="sign-in">
             Sign Up
           </a>

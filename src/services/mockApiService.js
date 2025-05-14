@@ -100,32 +100,9 @@ export const updateLikedCars = async (addToLikedCars, carId, accountId) => {
 
         return updatedAccount;
     } catch (error) {
-        console.error('Error updating liked cars:', error);
-        throw error; // Re-throw to allow caller to handle
+        throw error;
     }
 }
-
-
-
-
-export const deleteAccount = async (id) => {
-    try {
-        const response = await fetch(`${url}/${id}`, {
-            method: "DELETE",
-        });
-        if (!response.ok) {
-            throw new Error("Failed to delete account");
-        }
-        const deletedAccount = await response.json();
-        console.log(deletedAccount);
-        return deletedAccount;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
-
 
 export const getAccounts = async () => {
     try {

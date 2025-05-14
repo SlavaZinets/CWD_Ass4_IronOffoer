@@ -85,7 +85,6 @@ export default function SignUp() {
         email: email,
         password: password, // Important: Include password for login
         phoneNumber: phoneNumber,
-        avatarSrc: "../images/icons/accountIcon.svg",
         likedCars: [] // Initialize empty liked cars array
       };
 
@@ -103,20 +102,15 @@ export default function SignUp() {
         account.set(createdAccount);
         isLogged.set(true);
 
-        // Redirect to account page immediately
+        // Redirect to account page
         window.location.href = "/account";
-      } else {
-        throw new Error("Failed to create account");
       }
     } catch (error) {
-      console.error("Error creating account:", error);
       setSubmitError("Failed to create account. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  // Success message removed - redirecting directly
 
   return (
     <div className="container">
@@ -243,7 +237,7 @@ export default function SignUp() {
               onClick={handleRegister}
               disabled={isSubmitting}
             >
-              {isSubmitting ? 'Creating Account...' : 'Register'}
+              Register
             </button>
           </form>
           <span>

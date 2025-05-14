@@ -3,10 +3,6 @@ import "../styles/global.css";
 import "../styles/account.css";
 import "../styles/popUpContainer.css";
 import "../styles/catalog.css";
-
-import avatarIcon1 from "../images/icons/avatar_icon1.svg";
-import avatarIcon2 from "../images/icons/avatar_icon2.svg";
-import avatarIcon3 from "../images/icons/avatar_icon3.svg";
 import defaultAvatarIcon from "../images/icons/accountIcon.svg";
 
 import { cars } from "../data/cars.js";
@@ -25,7 +21,6 @@ export default function Account(props) {
         dateOfBirth = '',
         email = '',
         phoneNumber = '',
-        avatarSrc = null
     } = props || {};
 
 
@@ -42,8 +37,6 @@ export default function Account(props) {
         phoneNumber: phoneNumber || ''
     });
 
-    const [selectedAvatar, setSelectedAvatar] = useState("");
-    const [currentAvatarSrc, setCurrentAvatarSrc] = useState(avatarSrc || null);
 
     useEffect(() => {
         const isUserLoggedIn = sessionStorage.getItem("isLogged") === "true";
@@ -61,42 +54,10 @@ export default function Account(props) {
                     phoneNumber: accountData.phoneNumber || ''
                 });
 
-                if (accountData.avatarSrc) {
-                    setCurrentAvatarSrc(accountData.avatarSrc);
-                }
             }
         }
     }, []);
 
-
-    //TODO: check if this useEffect is redundant
-
-    // Listen for changes in the mainStore account state
-    useEffect(() => {
-        const unsubscribe = account.subscribe(accountData => {
-            if (accountData) {
-                setFormData({
-                    name: accountData.name || '',
-                    lastName: accountData.lastName || '',
-                    dateOfBirth: accountData.dateOfBirth || '',
-                    email: accountData.email || '',
-                    phoneNumber: accountData.phoneNumber || ''
-                });
-
-                if (accountData.avatarSrc) {
-                    setCurrentAvatarSrc(accountData.avatarSrc);
-                }
-
-                // Update liked cars
-                if (accountData.likedCars) {
-                    setLikedCars(accountData.likedCars);
-                }
-            }
-        });
-
-        // Cleanup subscription on unmount
-        return () => unsubscribe();
-    }, []);
 
     const handleSectionChange = (index) => {
         setActiveSection(index);
@@ -110,10 +71,6 @@ export default function Account(props) {
             ...formData,
             [name]: value
         });
-    };
-
-    const handleAvatarSelect = (src) => {
-        setSelectedAvatar(src);
     };
 
     // Handle form submission
@@ -140,21 +97,12 @@ export default function Account(props) {
             phoneNumber: formData.phoneNumber
         };
 
-        // If an avatar was selected, update it
-        if (selectedAvatar) {
-            updatedAccount.avatarSrc = selectedAvatar;
-            setCurrentAvatarSrc(selectedAvatar);
-        }
-
         try {
-            // Update account in MockAPI
             const result = await updateAccount(updatedAccount);
 
             if (result) {
-                // Update session storage
                 sessionStorage.setItem("account", JSON.stringify(result));
 
-                // Update store
                 account.set(result);
 
                 // Update local state
@@ -168,7 +116,6 @@ export default function Account(props) {
 
                 // Set success state
                 setUpdateStatus({ loading: false, success: true, error: null });
-                console.log("Account updated successfully");
 
                 // Reset success message after 3 seconds
                 setTimeout(() => {
@@ -176,11 +123,8 @@ export default function Account(props) {
                 }, 3000);
             }
         } catch (error) {
-            console.error("Failed to update account:", error);
             setUpdateStatus({ loading: false, success: false, error: "Failed to update account" });
         }
-
-        // Success state will be shown
     };
 
     // Handle sign out
@@ -214,10 +158,6 @@ export default function Account(props) {
                 email: accountData.email || '',
                 phoneNumber: accountData.phoneNumber || ''
             });
-
-            if (accountData.avatarSrc) {
-                setCurrentAvatarSrc(accountData.avatarSrc);
-            }
         }
     };
 
@@ -253,15 +193,12 @@ export default function Account(props) {
                     <div className="account">
                         <aside className="profile-sidebar">
                             <div className="avatar-section">
-                                <div className="default-avatar-icon">
-                                    {currentAvatarSrc && (
                                         <img
+                                            className="default-avatar-icon"
                                             src={defaultAvatarIcon.src}
                                             alt="avatar"
-                                            style={{ width: '100%', height: '100%', borderRadius: '50%' }}
                                         />
-                                    )}
-                                </div>
+
                                 <span className="avatar-label-name">{formData.name} {formData.lastName}</span>
                                 <span className="avatar-label-email">{formData.email}</span>
                             </div>
@@ -274,38 +211,7 @@ export default function Account(props) {
                                     <h3 className="personal-info-title">Personal information</h3>
                                     <PopUpContainer buttonText="Edit" buttonStyle="edit-info-button">
                                         <div className="edit-menu edit-menu-active">
-                                            <div className="avatar-select-menu">
                                                 <h2 className="form-heading">Edit personal information</h2>
-                                                <div className="avatar-container">
-                                                    <div className={`avatarIcon ${selectedAvatar === avatarIcon1 ? 'avatarIcon-selected' : ''}`}
-                                                        onClick={() => handleAvatarSelect(avatarIcon1)}
-                                                    >
-                                                        <img
-                                                            src={avatarIcon1.src}
-                                                            alt="avatar1"
-                                                            style={{ width: '100%', height: '100%', borderRadius: '50%' }}
-                                                        />
-                                                    </div>
-                                                    <div className={`avatarIcon ${selectedAvatar === avatarIcon2 ? 'avatarIcon-selected' : ''}`}
-                                                        onClick={() => handleAvatarSelect(avatarIcon2)}
-                                                    >
-                                                        <img
-                                                            src={avatarIcon2.src}
-                                                            alt="avatar2"
-                                                            style={{ width: '100%', height: '100%', borderRadius: '50%' }}
-                                                        />
-                                                    </div>
-                                                    <div className={`avatarIcon ${selectedAvatar === avatarIcon3 ? 'avatarIcon-selected' : ''}`}
-                                                        onClick={() => handleAvatarSelect(avatarIcon3)}
-                                                    >
-                                                        <img
-                                                            src={avatarIcon3.src}
-                                                            alt="avatar3"
-                                                            style={{ width: '100%', height: '100%', borderRadius: '50%' }}
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
                                             <div className="edit-info-form">
                                                 <div className="form-items">
                                                     <div className="form-item-name-fields">
@@ -331,19 +237,6 @@ export default function Account(props) {
                                                             value={formData.lastName}
                                                             onChange={handleInputChange}
                                                         />
-                                                    </div>
-                                                    <div className="form-item">
-                                                        <label className="item-label">
-                                                            Email
-                                                            <input
-                                                                className="form-input"
-                                                                type="text"
-                                                                placeholder="Enter Email"
-                                                                name="email"
-                                                                value={formData.email}
-                                                                onChange={handleInputChange}
-                                                            />
-                                                        </label>
                                                     </div>
                                                     <div className="form-item">
                                                         <label className="item-label">
@@ -377,7 +270,7 @@ export default function Account(props) {
                                                     onClick={handleSubmit}
                                                     disabled={updateStatus.loading}
                                                 >
-                                                    {updateStatus.loading ? 'Saving...' : 'Save Changes'}
+                                                    Save changes
                                                 </button>
                                                 {updateStatus.success && (
                                                     <div className="update-success-message">Account updated successfully!</div>
@@ -431,7 +324,6 @@ export default function Account(props) {
                     </div>
                 </div>
             </div>
-
                 </>
             )}
         </div>
