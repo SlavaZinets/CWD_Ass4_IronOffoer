@@ -5,13 +5,13 @@ import { Image } from "astro:assets";
 
 import avatarIcon1 from "../images/icons/avatar_icon1.svg";
 import avatarIcon2 from "../images/icons/avatar_icon2.svg";
-import avatarIcon4 from "../images/icons/avatar_icon4.svg";
+import avatarIcon4 from "../images/icons/avatar_icon3.svg";
 import editIcon from "../images/icons/editIco.svg";
 import PopUpContainer from "./PopUpContainer.astro";
 import "../styles/popUpContainer.css";
 import "../styles/catalog.css";
 import { cars } from "../data/cars.js";
-import ProductCard from "./ProductCard.astro";
+import ProductCard from "./ProductCard.jsx";
 const {
     name,
     lastName,
@@ -38,7 +38,7 @@ const {
     </div>
 
     <div class="account">
-        <div class="profile-sidebar">
+        <aside class="profile-sidebar">
             <div class="avatar-section">
                 <Image
                     src={avatarSrc}
@@ -49,10 +49,10 @@ const {
                 <span class="avatar-label-name">{name} {lastName}</span>
                 <span class="avatar-label-email">{email}</span>
             </div>
-            <div class="balance-sign-out-div">
+
                 <button class="sign-out-button">Sign out</button>
-            </div>
-        </div>
+
+        </aside>
         <div class="personal-info-section">
             <div class="option-section option-section-active">
                 <div class="personal-info-header">
@@ -97,7 +97,7 @@ const {
     {
 
         cars.map((car) => (
-            <ProductCard car={car} />
+            <ProductCard car={car} client:load />
         ))
 
     }

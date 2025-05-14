@@ -1,10 +1,10 @@
 ---
 
 import DefaultLayout from "../layouts/DefaultLayout.astro";
-import Catalog from "../components/Catalog.astro";
+import Catalog from "../components/Catalog.jsx";
 import CatalogLayout from "../layouts/CatalogLayout.astro";
 ---
 
 <CatalogLayout title="Home">
-    <Catalog/>
+    <Catalog client:load />
 </CatalogLayout>

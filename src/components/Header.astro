@@ -5,6 +5,10 @@ import '../styles/header.css';
 import searchIcon from '../images/icons/searchIcon.svg';
 import { Image } from 'astro:assets';
 
+import { isLogged } from "../stores/mainStore.js";
+
+
+
 //Todo make focus for search bar js
 
 ---
@@ -21,7 +25,7 @@ import { Image } from 'astro:assets';
        <nav>
            <ul class="nav_list">
                <li><a href="/">Catalog</a></li>
-               <li><a href="/account">Account</a></li>
+               <li><a href={isLogged.get() ? "/account" : "/signIn"}>Account</a></li>
                <li><a href="/contactUs">Contact Us</a></li>
                <li><a href="/aboutUs">About us</a></li>
                <li><a href="/aboutDevs">About devs</a></li>
