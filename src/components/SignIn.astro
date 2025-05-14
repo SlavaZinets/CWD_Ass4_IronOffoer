@@ -5,11 +5,11 @@ import { Image } from "astro:assets";
 import loginSideImage from "../images/icons/loginPagePhoto2.webp";
 ---
 
-<div class="container">
+
     <div class="sign-in-section">
         
         <div class="sign-in-container">
-            <h4 class="company-name">Iron offer</h4>
+            <h4 class="company-name-sign-in">Iron offer</h4>
             <div class="sign-in-header">
                 <h2 class="sign-in-title">Hello again!</h2>
                 <p class="sign-in-sub-title">Log in to continue bidding on the best car deals.</p>
@@ -27,17 +27,18 @@ import loginSideImage from "../images/icons/loginPagePhoto2.webp";
                 
 
                 <button class="sign-in-button">Sign In</button>
+                
             </form>
-            <span>Don't have an account? <button class="sign-up">Sign up</button></span>
+            <span>Don't have an account? <a href="/signUp" class="sign-in">Sign Out</a></span>
             
         </div>
         <Image
             src={loginSideImage}
             alt="Login side img"
-            class="login-side-image"
+            class="login-side-image-sign-in"
         />
     </div>
-</div>
+
 <script>
     const sign_in_button = document.querySelector(".sign-in-button");
     const email = document.querySelector(".email") as HTMLInputElement;
