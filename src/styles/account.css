@@ -2,6 +2,21 @@
     margin-bottom: 5rem;
 }
 
+.not-logged-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    text-align: center;
+    gap: 2rem;
+}
+
+.not-logged-in h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
 .sub-header {
     display: flex;
     justify-content: space-between;
