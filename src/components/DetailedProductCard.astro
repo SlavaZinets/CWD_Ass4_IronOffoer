@@ -1,8 +1,7 @@
 ---
-import "../styles/global.css"
-import "../styles/detailedProductCard.css"
-import {Image} from "astro:assets";
-
+import "../styles/global.css";
+import "../styles/detailedProductCard.css";
+import { Image } from "astro:assets";
 
 import carIcon from "../images/icons/carInfoIcons/car.svg"
 import world from "../images/icons/carInfoIcons/world.svg"
@@ -10,14 +9,16 @@ import odometer from "../images/icons/carInfoIcons/odometer.svg"
 import steeringWheel from "../images/icons/carInfoIcons/steering-wheel.svg"
 import transmission from "../images/icons/carInfoIcons/transmission.svg"
 import color from "../images/icons/carInfoIcons/color.svg"
+
 import LikeButton from "./LikeButton.jsx";
 import PopUpContainer from "./PopUpContainer.jsx";
 
 
-const {car} = Astro.props;
+const { car } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/*.{png,jpg,jpeg,gif,webp}');
 const imagePath = `/src/images/${car.imageUrl}`
+
 
 ---
 
@@ -32,36 +33,209 @@ const imagePath = `/src/images/${car.imageUrl}`
         <div class="characteristics">
             <div class="car-details">
                 <h3 class="title">{car?.title || "A nice car"} for sale</h3>
-                    <p class="price">{car?.price || "unknown price"} €</p>
+                <p class="price">{car?.price || "unknown price"} €</p>
                 <div class="list">
                     <ul>
                         <li>
-                            <Image class="icon" src={carIcon} alt="Car name: "/>
-                            <span>{car?.title || "Unknown car"}</span></li>
+                            <Image
+                                class="icon"
+                                src={carIcon}
+                                alt="Car name: "
+                            />
+                            <span>{car?.title || "Unknown car"}</span>
+                        </li>
                         <li>
-                            <Image class="icon" src={world} alt="Country of origin: "/>
-                            <span>{car?.origin || "USA"}</span></li>
+                            <Image
+                                class="icon"
+                                src={world}
+                                alt="Country of origin: "
+                            />
+                            <span>{car?.origin || "USA"}</span>
+                        </li>
                         <li>
-                            <Image class="icon" src={odometer} alt="Kilometers: "/>
-                            <span>{car?.run || "unknown run"}</span></li>
+                            <Image
+                                class="icon"
+                                src={odometer}
+                                alt="Kilometers: "
+                            />
+                            <span>{car?.run || "unknown run"}</span>
+                        </li>
                     </ul>
                     <ul>
                         <li>
-                            <Image class="icon" src={steeringWheel} alt="Steering wheel location: "/>
-                            <span>{car?.wheel || "unknown"}</span></li>
+                            <Image
+                                class="icon"
+                                src={steeringWheel}
+                                alt="Steering wheel location: "
+                            />
+                            <span>{car?.wheel || "unknown"}</span>
+                        </li>
                         <li>
-                            <Image class="icon" src={transmission} alt="Transmission: "/>
-                            <span>{car?.transmission || "unknown transmission"}</span></li>
+                            <Image
+                                class="icon"
+                                src={transmission}
+                                alt="Transmission: "
+                            />
+                            <span
+                                >{
+                                    car?.transmission || "unknown transmission"
+                                }</span
+                            >
+                        </li>
                         <li>
-                            <Image class="icon" src={color} alt="Car's color: "/>
-                            <span>{car?.color || "unknown color"}</span></li>
+                            <Image
+                                class="icon"
+                                src={color}
+                                alt="Car's color: "
+                            />
+                            <span>{car?.color || "unknown color"}</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <PopUpContainer buttonStyle="buy" buttonText="Buy" client:load >
-                <p>xyi</p>
+            <PopUpContainer buttonStyle="buy" buttonText="Buy" client:load>
+                <div class="success-message">
+                    Your message has been sent successfully!
+                </div>
+                <div class="buy-product-section">
+                    <div class="payment-information-title">
+                        <h2>Payment Information</h2>
+                    </div>
+                    <div class="payment-information-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Sed asperiores iusto ut, expedita delectus commodi
+                        pariatur doloribus praesentium, quia et ex labore minus
+                    </div>
+                    <div class="payment-information-subtitle">
+                        <h3>Pay with card</h3>
+                    </div>
+                    <form class="payment-form">
+                        <label
+                            >Card Number
+                            <input
+                                class="card-name"
+                                type="text"
+                                placeholder="Enter card name"
+                            />
+                        </label>
+                        <div class="error-message">Card name is required</div>
+                        <label
+                            >Expiration(mm/yyyy)
+                            <input
+                                class="expiration-date"
+                                type="text"
+                                placeholder="02/2020"
+                            />
+                        </label>
+                        <div class="error-message">
+                            Expiration date is required
+                        </div>
+                        <label
+                            >Security code
+                            <input
+                                class="security-code"
+                                type="text"
+                                placeholder="104"
+                            />
+                        </label>
+                        <div class="error-message">
+                            Security code is required
+                        </div>
+                        <label
+                            >Cardholder Name
+                            <input
+                                class="cardholder-name"
+                                type="text"
+                                placeholder="104"
+                            />
+                        </label>
+                        <div class="error-message">
+                            Cardholder name is required
+                        </div>
+                        <button class="submit-payment-info" 
+                            >Confirm</button
+                        >
+                    </form>
+                </div>
             </PopUpContainer>
         </div>
     </div>
 </div>
 
+
+<script >
+    const card_name = document.querySelector(".card-name") as HTMLInputElement;
+    const expiration_date = document.querySelector(
+        ".expiration-date",
+    ) as HTMLInputElement;
+    const security_code = document.querySelector(
+        ".security-code",
+    ) as HTMLInputElement;
+    const cardholder_name = document.querySelector(
+        ".cardholder-name",
+    ) as HTMLInputElement;
+    const payment_form = document.querySelector(".payment-form");
+    const error_message = document.querySelectorAll(".error-message");
+    const success_msg = document.querySelector(
+        ".success-message",
+    ) as HTMLElement;
+    const submit_payment_info = document.querySelector(".submit-payment-info") as HTMLElement;
+    console.log(payment_form);
+    function validatePaymentInfo() {
+        let valid = true;
+
+        // Hide all error messages first
+        error_message.forEach((el) => {
+            (el as HTMLElement).style.display = "none";
+        });
+
+        // Card number: 16 digits
+        if (!/^\d{16}$/.test(card_name.value)) {
+            (error_message[0] as HTMLElement).style.display = "block";
+            valid = false;
+        }
+
+        // Expiration date: MM/YY and not expired
+        if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiration_date.value)) {
+            (error_message[1] as HTMLElement).style.display = "block";
+            valid = false;
+        } else {
+            const [monthStr, yearStr] = expiration_date.value.split("/");
+            const month = parseInt(monthStr, 10);
+            const year = parseInt("20" + yearStr, 10);
+            const now = new Date();
+            const expiry = new Date(year, month);
+
+            if (expiry < now) {
+                (error_message[1] as HTMLElement).style.display = "block";
+                valid = false;
+            }
+        }
+
+        if (!/^\d{3,4}$/.test(security_code.value)) {
+            (error_message[2] as HTMLElement).style.display = "block";
+            valid = false;
+        }
+
+        if (!/^[A-Za-z\s]{2,}$/.test(cardholder_name.value.trim())) {
+            (error_message[3] as HTMLElement).style.display = "block";
+            valid = false;
+        }
+
+        return valid;
+    }
+
+    
+    submit_payment_info?.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("entered the event listener");
+        
+        if (validatePaymentInfo()) {
+            success_msg.style.display = "block";
+            setTimeout(() => {
+                success_msg.style.display = "none";
+            }, 5000);
+        }
+    });
+    
+</script>

@@ -1,36 +1,53 @@
 ---
-import '../styles/global.css';
-import '../styles/header.css';
+
+import "../styles/global.css";
+import "../styles/header.css";
+
+import searchIcon from "../images/icons/searchIcon.svg";
+import { Image } from "astro:assets";
+import burgerIcon from "../images/icons/burger-icon-white.svg";
 ---
 
 <header class="header">
-   <div class="header_inner container">
-       <span class="logo">Iron Offer <span class="logo_line"></span> </span>
-       
-       <nav>
-           <ul class="nav_list">
-               
-               <li><a href="/">Catalog</a></li>
-               <li><a href={"/account"}>Account</a></li>
-               <li><a href="/contactUs">Contact Us</a></li>
-               <li><a href="/aboutUs">About us</a></li>
-               <li><a href="/aboutDevs">About devs</a></li>
-           </ul>
-       </nav>
-   </div>
+    <div class="header_inner container">
+        <span class="logo">Iron Offer <span class="logo_line"></span> </span>
+
+        <nav>
+            <button class="burger-button">
+            <Image src={burgerIcon} alt="burger icon" class="burger-icon" />
+            </button>
+            <ul class="nav_list">
+                <li><a href="/">Catalog</a></li>
+                <li><a href={"/account"}>Account</a></li>
+                <li><a href="/contactUs">Contact Us</a></li>
+                <li><a href="/aboutUs">About us</a></li>
+                <li><a href="/aboutDevs">About devs</a></li>
+            </ul>
+            
+        </nav>
+        
+    </div>
+
 </header>
 <script>
     const input = document.querySelector(".search-input") as HTMLInputElement;
-    const searchBar = document.querySelector(".search-container")
+    const searchBar = document.querySelector(".search-container");
 
     const body = document.querySelector("body") as HTMLBodyElement;
 
-    input?.addEventListener('focus', ()=>{
-        searchBar?.classList.add("focused")
-        body?.classList.add("blur")
-    })
+    input?.addEventListener("focus", () => {
+        searchBar?.classList.add("focused");
+        body?.classList.add("blur");
+    });
     input?.addEventListener("blur", () => {
         searchBar?.classList.remove("focused");
         body?.classList.remove("blur");
+    });
+
+    const burgerButton = document.querySelector(".burger-button") as HTMLElement;
+    const navList = document.querySelector(".nav_list") as HTMLElement;
+
+    burgerButton.addEventListener("click", () => {
+        navList?.classList.toggle("nav_list-show");
     });
 </script>
