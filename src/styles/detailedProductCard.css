@@ -5,6 +5,12 @@
     padding: 2rem;
 }
 
+@media (max-width: 750px) {
+    .lot{
+        grid-template-columns: none;
+    }
+}
+
 .card-img {
     width: 100%;
     height: auto;
