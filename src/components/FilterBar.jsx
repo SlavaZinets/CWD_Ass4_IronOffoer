@@ -2,7 +2,7 @@ import "../styles/filterBar.css";
 import { useState } from "react";
 import { cars } from "../data/cars.js";
 
-import { filteredCars } from "../stores/filterStore.js";
+import { filteredCars } from "../stores/mainStore.js";
 
 export default function FilterBar() {
     // State for all filter inputs
@@ -57,11 +57,7 @@ export default function FilterBar() {
             return true;
         });
 
-        console.log('Filtered Cars:', filteredCarsData);
-
         filteredCars.set(filteredCarsData);
-
-        console.log(filteredCars.get());
     };
 
     return (

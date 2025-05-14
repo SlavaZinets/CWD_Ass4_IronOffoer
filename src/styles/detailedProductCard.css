@@ -68,11 +68,6 @@
     gap: 1rem;
 }
 
-.auction-info {
-    display: grid;
-    gap: 1rem;
-}
-
 .bid-details {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -80,14 +75,12 @@
     padding-block: 2rem;
 }
 
-
-
-
 .buy {
     background-color: var(--price-color);
     padding: 0.5rem;
     color: var(--text-color-light);
     border-radius: 0.25rem;
+    width: 100%;
 }
 
 
