@@ -2,6 +2,7 @@
 import DetailedProductCard from "../../components/DetailedProductCard.astro";
 import { cars } from "../../data/cars.js";
 import DefaultLayout from "../../layouts/DefaultLayout.astro";
+import Description from "../../components/Description.astro"
 
 export function getStaticPaths() {
     return cars.map(car => ({
@@ -14,6 +15,6 @@ const { car } = Astro.props;
 ---
 
 <DefaultLayout>
-   <DetailedProductCard car={car} />
-
+    <DetailedProductCard car={car} />
+    <Description />
 </DefaultLayout>

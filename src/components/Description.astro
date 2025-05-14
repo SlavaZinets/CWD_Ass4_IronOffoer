@@ -1,0 +1,19 @@
+---
+import "../styles/global.css"
+import "../styles/description.css"
+
+const description = "With an electric range up to 634km³ the Q6 e-tron takes electric mobility to the next level. Experience the future of connected driving from €689 per month at 3.9% APR* during Audi All-Access. For a limited time, avail of the following packs on Q6 e-tron Advance and S Line models for 252: /n Tech Plus pack from €3394^ including proactive occupant protection, e-tron sport sound, S sport suspension, digital light signatures, Led rear lights pro, Matrix function, and rear occupant detection. /n Tech Pro pack from €5895^ including Adaptive cruise assist plus, Adaptive Air Supension and digital OLED rear lights. /n Comfort Pack Plus from €1244^ with memory function for driver sear & exterior mirrors and electrically adjustable front seats. /n Comfort Pack Plus with Anti-Theft alarm from €1855^. Comfort Pack Pro from €2065^ with electric steering wheel adjustment and garage door opener. Comfort Pack Pro with Anti-Theft alarm from €2705^. /n MMI Experience Pro Pack from €4721^ with Augmented HUD, Ambient Lighting Pack Plus, USB with increased charge speed and 3D Premium Sound System."
+
+const descriptionText = description.split("/n");
+---
+
+<div class="description">
+    <h3 class="heading">Description</h3>
+    <div class="paragraphs">
+        {
+            descriptionText.map( (text) => (
+                <p class="paragraph">{text}</p>
+            ))
+        }
+    </div>
+</div>

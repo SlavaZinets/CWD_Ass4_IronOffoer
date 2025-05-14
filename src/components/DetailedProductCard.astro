@@ -14,7 +14,6 @@ import imagePlaceholder from "../images/icons/carInfoIcons/car.svg"
 import LikeButton from "./LikeButton.astro";
 
 
-
 const {car} = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../images/*.{png,jpg,jpeg,gif,webp}');
