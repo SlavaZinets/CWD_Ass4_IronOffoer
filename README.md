@@ -1,47 +1,63 @@
-# Astro Starter Kit: Minimal
+# Iron Offer
 
-```sh
-npm create astro@latest -- --template minimal
+Iron Offer is a classic/used car marketplace website built with Astro and
+React. Visitors can browse a catalog of cars, filter it, open a detailed page
+per car, and — after signing up — save cars to a personal list of favorites.
+
+## Features
+
+- **Catalog** (`/`) — grid of cars (title, price, origin, mileage, wheel
+  side, transmission, color, photo) sourced from a static data set
+  (`src/data/cars.js`).
+- **Filtering** — a filter bar to narrow the catalog by price range,
+  mileage range, steering wheel side (left/right), and country of origin
+  (Germany, USA, Japan, Italy).
+- **Car detail page** (`/cars/[id]`) — a statically generated page per car
+  with a larger image, full specs, and description.
+- **Accounts** — sign up (`/signUp`) and sign in (`/signIn`) forms that
+  validate input client-side and check credentials against accounts stored
+  in a hosted mock backend ([mockapi.io](https://mockapi.io)); the logged-in
+  account is kept in `sessionStorage` and in a shared `nanostores` store.
+- **Favorites** — a like button on each car that adds/removes the car from
+  the signed-in account's `likedCars` list, persisted back to the mock API.
+- **Account page** (`/account`) — shows the signed-in user's info and liked
+  cars.
+- **Static content pages** — `/aboutUs`, `/aboutDevs`, `/contactUs`.
+
+## Tech stack
+
+- [Astro](https://astro.build/) for routing, static page generation, and
+  layouts (`.astro` components/pages).
+- [React](https://react.dev/) for the interactive parts (catalog, filter
+  bar, like button, sign in/up forms, account page), loaded as Astro
+  islands via `@astrojs/react`.
+- [nanostores](https://github.com/nanostores/nanostores) (`@nanostores/react`)
+  for shared client-side state (filtered car list, logged-in account).
+- Plain CSS per component/page (no CSS framework).
+- A [mockapi.io](https://mockapi.io) REST endpoint as a mock backend for
+  account storage.
+
+## Project structure
+
+```
+src/
+  components/   Astro + React UI components (Catalog, FilterBar, ProductCard,
+                DetailedProductCard, SignIn, SignUp, Account, LikeButton, ...)
+  data/         cars.js — the static car catalog
+  layouts/      DefaultLayout, CatalogLayout
+  pages/        route files, including the dynamic src/pages/cars/[id].astro
+  services/     mockApiService.js — calls to the mock accounts API
+  stores/       mainStore.js — nanostores atoms for shared state
+  styles/       per-page/per-component CSS
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Running locally
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Requires Node.js.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm install
+npm run dev       # start the dev server at http://localhost:4321
+npm run build     # production build to ./dist/
+npm run preview   # preview the production build locally
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
